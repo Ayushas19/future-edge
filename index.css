@@ -1174,22 +1174,48 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
 }
 
 @media (max-width: 768px) {
+  /* Section Padding */
+  .section {
+    padding: 60px 0;
+  }
+
+  /* Logo Adjustments */
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  /* Mobile Navigation Hamburger & Theme Toggle Alignment */
   .mobile-nav-toggle {
     display: block;
   }
-  
+
+  .navmenu-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .navmenu-right .btn-primary {
+    display: none; /* Hide primary CTA button on mobile header */
+  }
+
   .navmenu {
     position: fixed;
     top: var(--header-height);
     right: -100%;
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     height: calc(100vh - var(--header-height));
-    background-color: var(--bg-card);
+    background-color: var(--glass-bg);
     border-left: 1px solid var(--border-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     padding: 40px;
-    gap: 40px;
+    gap: 30px;
     transition: var(--transition-smooth);
     box-shadow: var(--shadow-lg);
   }
@@ -1202,32 +1228,101 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
     flex-direction: column;
     width: 100%;
     gap: 24px;
+    text-align: center;
   }
 
-  .navmenu-right {
-    display: none; /* Handled in responsive menu or modified */
+  .navmenu a {
+    font-size: 1.15rem;
+  }
+
+  /* Hero Section Mobile styling */
+  .hero {
+    padding-top: calc(var(--header-height) + 20px);
+    padding-bottom: 40px;
   }
 
   .hero h2 {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+    line-height: 1.25;
   }
-  
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
   .hero-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 40px;
   }
 
+  .hero-box {
+    padding: 20px 15px;
+    min-height: 120px;
+  }
+
+  .hero-box i {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .hero-box h3 {
+    font-size: 0.9rem;
+  }
+
+  /* Services Grid Mobile */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 30px 20px;
+  }
+
+  /* Structural Stacking */
   .about-grid, .features-grid, .team-founder, .contact-grid, .footer-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .founder-card {
-    max-width: 450px;
-    margin: 0 auto;
+    gap: 35px;
   }
 
   .features-list {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .founder-card {
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    padding: 30px 20px;
+  }
+
+  .founder-details h4 {
+    font-size: 1.25rem;
+  }
+
+  .founder-details h5 {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .founder-details-content p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .contact-info {
+    gap: 16px;
+  }
+
+  .contact-item {
+    padding: 20px;
+  }
+
+  .contact-form {
+    padding: 30px 20px;
   }
 
   .form-row {
@@ -1235,6 +1330,7 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
     gap: 0;
   }
 
+  /* Footer Mobile alignment */
   .footer-grid {
     text-align: center;
   }
@@ -1250,10 +1346,18 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
 
 @media (max-width: 480px) {
   .hero h2 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
   
   .hero-grid {
     grid-template-columns: 1fr;
+  }
+
+  .navmenu {
+    max-width: 100%;
+  }
+
+  .logo {
+    font-size: 1.15rem;
   }
 }

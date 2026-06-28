@@ -560,12 +560,15 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .about-image img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   transition: transform 0.7s ease;

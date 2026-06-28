@@ -1119,56 +1119,30 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
 }
 
 /* ----------------------------------------------------
-   SCROLL REVEAL ANIMATIONS (CSS VIEW-TIMELINE)
+   SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER)
 ---------------------------------------------------- */
-@media (prefers-reduced-motion: no-preference) {
-  @supports ((animation-timeline: view()) and (animation-range: entry)) {
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(60px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes scaleUp {
-      from {
-        opacity: 0;
-        scale: 0.85;
-      }
-      to {
-        opacity: 1;
-        scale: 1;
-      }
-    }
-
-    .scroll-reveal {
-      animation: fadeInUp auto linear backwards;
-      animation-timeline: view();
-      animation-range: entry 5% cover 30%;
-    }
-
-    .scroll-reveal-scale {
-      animation: scaleUp auto linear backwards;
-      animation-timeline: view();
-      animation-range: entry 5% cover 30%;
-    }
-  }
-}
-
-/* Fallback class for javascript intersection observer triggers */
-.js-reveal {
+.scroll-reveal, .js-reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
 }
 
-.js-reveal.active {
+.scroll-reveal.active, .js-reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Mobile Breakpoints */

@@ -85,7 +85,7 @@
     <!-- ==========================================
          HERO SECTION (GP Styled)
          ========================================== -->
-    <section id="hero" class="hero" style="background-image: url('https://themewagon.github.io/gp/assets/img/hero-bg.jpg');">
+    <section id="hero" class="hero" style="background-image: url('https://bootstrapmade.com/content/demo/Gp/assets/img/hero-bg.jpg');">
       <div class="hero-container">
         
         <!-- Main Text Box -->
@@ -623,25 +623,26 @@
       });
     });
 
-    // Unconditional stable scroll-driven reveals utilizing IntersectionObserver (iOS, Safari, Chrome compatible)
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            revealObserver.unobserve(entry.target);
+    // Fallback Scroll-driven animations fallback utilizing IntersectionObserver (IE/Firefox)
+    if (!CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
           }
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
         }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-      }
-    );
+      );
 
-    document.querySelectorAll('.scroll-reveal, .scroll-reveal-scale, .js-reveal').forEach((el) => {
-      revealObserver.observe(el);
-    });
+      document.querySelectorAll('.js-reveal').forEach((el) => {
+        observer.observe(el);
+      });
+    }
 
     // Interactive form submission feedback
     const auditForm = document.getElementById('audit-form');

@@ -38,6 +38,17 @@
 
 <body>
 
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <i class="bi bi-rocket-takeoff-fill"></i>
+        Future Edge<span>.</span>
+      </div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
   <!-- ==========================================
        HEADER & NAVIGATION
        ========================================== -->
@@ -653,6 +664,16 @@
         auditForm.reset();
       });
     }
+
+    // Preloader fadeout script
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+        }, 800);
+      }
+    });
   </script>
 </body>
 </html>

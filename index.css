@@ -1120,36 +1120,65 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
 ---------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
   @supports ((animation-timeline: view()) and (animation-range: entry)) {
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(60px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes reveal-fade-up {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes reveal-fade-down {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes reveal-fade-left {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes reveal-fade-right {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes reveal-scale {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes reveal-flip {
+      from { opacity: 0; transform: perspective(1000px) rotateX(15deg) translateY(30px); }
+      to { opacity: 1; transform: perspective(1000px) rotateX(0deg) translateY(0); }
     }
 
-    @keyframes scaleUp {
-      from {
-        opacity: 0;
-        scale: 0.85;
-      }
-      to {
-        opacity: 1;
-        scale: 1;
-      }
+    .scroll-reveal-up {
+      animation: reveal-fade-up auto linear backwards;
+      animation-timeline: view();
+      animation-range: entry 5% cover 30%;
     }
-
-    .scroll-reveal {
-      animation: fadeInUp auto linear backwards;
+    .scroll-reveal-down {
+      animation: reveal-fade-down auto linear backwards;
+      animation-timeline: view();
+      animation-range: entry 5% cover 30%;
+    }
+    .scroll-reveal-left {
+      animation: reveal-fade-left auto linear backwards;
+      animation-timeline: view();
+      animation-range: entry 5% cover 30%;
+    }
+    .scroll-reveal-right {
+      animation: reveal-fade-right auto linear backwards;
+      animation-timeline: view();
+      animation-range: entry 5% cover 30%;
+    }
+    .scroll-reveal-scale {
+      animation: reveal-scale auto linear backwards;
+      animation-timeline: view();
+      animation-range: entry 5% cover 30%;
+    }
+    .scroll-reveal-flip {
+      animation: reveal-flip auto linear backwards;
       animation-timeline: view();
       animation-range: entry 5% cover 30%;
     }
 
-    .scroll-reveal-scale {
-      animation: scaleUp auto linear backwards;
+    /* Backwards compatibility */
+    .scroll-reveal {
+      animation: reveal-fade-up auto linear backwards;
       animation-timeline: view();
       animation-range: entry 5% cover 30%;
     }
@@ -1157,15 +1186,47 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
 }
 
 /* Fallback class for javascript intersection observer triggers */
-.js-reveal {
+.js-reveal,
+.js-reveal-up,
+.js-reveal-down,
+.js-reveal-left,
+.js-reveal-right,
+.js-reveal-scale,
+.js-reveal-flip {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, opacity;
 }
 
-.js-reveal.active {
+.js-reveal { transform: translateY(40px); }
+.js-reveal-up { transform: translateY(50px); }
+.js-reveal-down { transform: translateY(-50px); }
+.js-reveal-left { transform: translateX(-50px); }
+.js-reveal-right { transform: translateX(50px); }
+.js-reveal-scale { transform: scale(0.9) translateY(20px); }
+.js-reveal-flip { transform: perspective(1000px) rotateX(15deg) translateY(30px); }
+
+.js-reveal.active,
+.js-reveal-up.active,
+.js-reveal-down.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.js-reveal-left.active,
+.js-reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.js-reveal-scale.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.js-reveal-flip.active {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0deg) translateY(0);
 }
 
 /* Mobile Breakpoints */

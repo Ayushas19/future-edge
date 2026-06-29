@@ -1517,6 +1517,15 @@ body.mobile-nav-active {
 }
 
 @media (max-width: 576px) {
+  /* Layout Resets for small screens, 6.1\" (iPhone 13) and 6.7\" (13 Plus) */
+  .container {
+    padding: 0 16px;
+  }
+  
+  .header-container {
+    padding: 0 16px;
+  }
+
   /* Section padding and titles */
   .section {
     padding: 50px 0;
@@ -1575,6 +1584,11 @@ body.mobile-nav-active {
     font-size: 1.15rem;
   }
   
+  /* CTA Banner padding */
+  .cta-banner {
+    padding: 50px 0;
+  }
+
   /* Audit Form padding */
   .contact-form {
     padding: 24px 16px;

@@ -456,6 +456,10 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
   background-repeat: no-repeat;
   z-index: 0;
   will-change: filter, transform, opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 /* Hero Overlay tinted dynamically depending on theme */

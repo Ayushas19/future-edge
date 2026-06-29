@@ -686,8 +686,9 @@
             const scrollY = window.scrollY;
             const progress = Math.min(scrollY / window.innerHeight, 1);
             
-            // Blur up to 20px
-            const blurValue = progress * 20;
+            // Disable heavy blur filter recalculations on mobile to prevent iOS Safari paint bugs
+            const isMobile = window.innerWidth <= 768;
+            const blurValue = isMobile ? 0 : progress * 20;
             // Scale up to 1.12 to hide blurred viewport boundaries
             const scaleValue = 1 + progress * 0.12;
             // Parallax offset
@@ -695,7 +696,7 @@
             // Fade out to black/cream page background
             const opacityValue = 1 - progress;
             
-            heroBg.style.filter = `blur(${blurValue}px)`;
+            heroBg.style.filter = blurValue > 0 ? `blur(${blurValue}px)` : 'none';
             heroBg.style.transform = `scale(${scaleValue}) translateY(${translateY}px)`;
             heroBg.style.opacity = opacityValue.toFixed(3);
             

@@ -93,10 +93,9 @@
 
   <main class="main">
 
-    <!-- ==========================================
-         HERO SECTION (GP Styled)
-         ========================================== -->
-    <section id="hero" class="hero" style="background-image: url('https://bootstrapmade.com/content/demo/Gp/assets/img/hero-bg.jpg');">
+    <section id="hero" class="hero">
+      <!-- Hero Background Image (Layered for scroll blur/fade effects) -->
+      <div class="hero-bg-layer" style="background-image: url('https://bootstrapmade.com/content/demo/Gp/assets/img/hero-bg.jpg');"></div>
       <div class="hero-container">
         
         <!-- Main Text Box -->
@@ -674,6 +673,36 @@
         }, 800);
       }
     });
+
+    // Premium Hero background scroll animations (Parallax, Blur, and Fade to page background)
+    const heroBg = document.querySelector('.hero-bg-layer');
+    if (heroBg) {
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            const progress = Math.min(scrollY / window.innerHeight, 1);
+            
+            // Blur up to 20px
+            const blurValue = progress * 20;
+            // Scale up to 1.12 to hide blurred viewport boundaries
+            const scaleValue = 1 + progress * 0.12;
+            // Parallax offset
+            const translateY = scrollY * 0.45;
+            // Fade out to black/cream page background
+            const opacityValue = 1 - progress;
+            
+            heroBg.style.filter = `blur(${blurValue}px)`;
+            heroBg.style.transform = `scale(${scaleValue}) translateY(${translateY}px)`;
+            heroBg.style.opacity = opacityValue.toFixed(3);
+            
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
   </script>
 </body>
 </html>

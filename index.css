@@ -443,10 +443,19 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
   justify-content: center;
   padding-top: calc(var(--header-height) + 40px);
   padding-bottom: 60px;
+  background-color: var(--bg-color); /* Fallback base color for fading */
+  overflow: hidden;
+}
+
+/* Layered background image for scroll blur/parallax effects */
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
+  z-index: 0;
+  will-change: filter, transform, opacity;
 }
 
 /* Hero Overlay tinted dynamically depending on theme */

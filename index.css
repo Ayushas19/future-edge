@@ -1323,6 +1323,10 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
   transform: perspective(1000px) rotateX(0deg) translateY(0);
 }
 
+body.mobile-nav-active {
+  overflow: hidden;
+}
+
 /* Mobile Breakpoints */
 @media (max-width: 1024px) {
   .hero h2 {
@@ -1512,20 +1516,67 @@ html[data-theme="dark"] .theme-toggle-btn .bi-moon-stars-fill {
   }
 }
 
-@media (max-width: 480px) {
-  .hero h2 {
+@media (max-width: 576px) {
+  /* Section padding and titles */
+  .section {
+    padding: 50px 0;
+  }
+  .section-header h2 {
     font-size: 1.75rem;
   }
-  
-  .hero-grid {
-    grid-template-columns: 1fr;
+  .section-header p {
+    font-size: 0.95rem;
   }
 
+  /* Hero Typography */
+  .hero h2 {
+    font-size: 1.7rem;
+  }
+  .hero p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Compact 2-column Hero Grid */
+  .hero-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+    margin-top: 30px;
+  }
+  .hero-box {
+    padding: 12px 8px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-box:nth-child(5) {
+    grid-column: span 2; /* Spans across 2 columns for symmetry */
+  }
+  .hero-box i {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+  .hero-box h3 {
+    font-size: 0.8rem;
+  }
+  .hero-box p {
+    display: none !important; /* Hide descriptions to conserve mobile space */
+  }
+
+  /* Full screen Mobile Nav Menu */
   .navmenu {
     max-width: 100%;
   }
 
   .logo {
     font-size: 1.15rem;
+  }
+  
+  /* Audit Form padding */
+  .contact-form {
+    padding: 24px 16px;
   }
 }

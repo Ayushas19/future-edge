@@ -585,6 +585,7 @@
         navMenu.classList.toggle('active');
         mobileToggle.classList.toggle('bi-list');
         mobileToggle.classList.toggle('bi-x');
+        document.body.classList.toggle('mobile-nav-active');
       });
 
       // Close mobile menu when clicking a link
@@ -593,6 +594,7 @@
           navMenu.classList.remove('active');
           mobileToggle.classList.add('bi-list');
           mobileToggle.classList.remove('bi-x');
+          document.body.classList.remove('mobile-nav-active');
         });
       });
     }

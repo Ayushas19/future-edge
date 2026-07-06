@@ -67,16 +67,16 @@ const VivekSingh = () => {
             
             <div className="content-box">
               <Video className="box-icon" />
-              <h3>Videos (D.M.)</h3>
-              <p>A gallery of masterclasses and digital marketing strategies.</p>
-              <a href="#" className="text-link">View Gallery <ArrowRight size={16} /></a>
+              <h3>Podcast Shoot & Edit</h3>
+              <p>Professional podcast shoot & edit services: high-quality audio/video recording, seamless post-production.</p>
+              <a href="#" className="text-link">View Portfolio <ArrowRight size={16} /></a>
             </div>
 
             <div className="content-box">
               <Award className="box-icon" />
-              <h3>DM Course</h3>
-              <p>Master digital marketing with my exclusive training program.</p>
-              <Link to="/" className="text-link">Join Course <ArrowRight size={16} /></Link>
+              <h3>Digital Marketing Course</h3>
+              <p>Join Our Digital Marketing Course to Learn & Grow Your Career.</p>
+              <Link to="/courses" className="text-link">Join Course <ArrowRight size={16} /></Link>
             </div>
 
             <div className="content-box highlight-box">

@@ -11,7 +11,7 @@ const Footer = () => {
           
           <div className="footer-col">
             <Link to="/" className="footer-logo">
-              Future Edge
+              <span className="text-gradient-brand" style={{ fontSize: '1.5rem', fontWeight: 700 }}>Future Edge</span>
             </Link>
             <p className="footer-desc">
               Copyright © {new Date().getFullYear()} Future Edge Digital Marketing. All rights Reserved.

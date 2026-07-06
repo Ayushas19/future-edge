@@ -1,6 +1,6 @@
 .footer {
   border-top: 1px solid var(--border-color);
-  background-color: #101010;
+  background-color: var(--card-bg);
   padding: 4rem 0 2rem;
 }
 

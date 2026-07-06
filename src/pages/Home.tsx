@@ -24,11 +24,11 @@ const Home = () => {
           
           <motion.h1 
             className="heading-display mt-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
           >
-            Future Edge<br />
+            <span className="text-gradient-brand">Future Edge</span><br />
             <span className="text-gradient">BEST D.M. Co.</span>
           </motion.h1>
           
@@ -71,16 +71,16 @@ const Home = () => {
             
             {/* LEFT: COURSE FUNNEL */}
             <div className="funnel-col course-funnel" id="course-funnel">
-              <h2 className="funnel-header">OUR DM Course</h2>
+              <h2 className="funnel-header">Digital Marketing Course</h2>
               <div className="video-embed flex-center">
                  <PlayCircle size={48} className="play-icon" />
-                 <span>YouTube Video Embed Placeholder</span>
+                 <span>Watch Course Brochure</span>
               </div>
               <div className="funnel-details">
-                <div className="detail-item"><strong>About Course:</strong> Master performance marketing, SEO, and social media.</div>
-                <div className="detail-item"><strong>Trainer:</strong> Jayesh Sir</div>
-                <div className="detail-item"><strong>Job Profile:</strong> Get hired as a Growth Manager or DM Executive.</div>
-                <div className="detail-item"><strong>Offer:</strong> 50% Off Early Bird Registration.</div>
+                <div className="detail-item"><strong>About Course:</strong> Join Our Digital Marketing Course to Learn & Grow Your Career.</div>
+                <div className="detail-item"><strong>Trainer:</strong> Expert Faculty</div>
+                <div className="detail-item"><strong>Job Profile:</strong> Get hired as a Marketing Executive.</div>
+                <div className="detail-item"><strong>Offer:</strong> Contact for latest batch details.</div>
               </div>
               <Link to="/courses" className="btn btn-primary w-full mt-4 justify-center">Join Now</Link>
               
@@ -93,12 +93,13 @@ const Home = () => {
             {/* RIGHT: SERVICES FUNNEL */}
             <div className="funnel-col services-funnel" id="services-funnel">
               <h2 className="funnel-header">OUR D.M. Services</h2>
-              <p className="intro-text">We scale businesses with data-driven marketing, generating massive ROI.</p>
+              <p className="intro-text">Professional digital solutions tailored to your business needs.</p>
               
               <div className="service-pillars">
-                <div className="pillar-block">Paid Ads & ROI</div>
-                <div className="pillar-block">Social Media & Organic</div>
-                <div className="pillar-block">CRM Automation</div>
+                <div className="pillar-block"><strong>Website Creation:</strong> Responsive design, SEO and fast loading</div>
+                <div className="pillar-block"><strong>Podcast Shoot & Edit:</strong> High-quality audio/video recording & post-production</div>
+                <div className="pillar-block"><strong>Ecommerce Listing:</strong> Drive sales with key product details</div>
+                <div className="pillar-block"><strong>B2B Business Marketing:</strong> Strategies for business growth</div>
               </div>
 
               <div className="workflow-process mt-4">

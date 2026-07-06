@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import VivekNavbar from './components/VivekNavbar';
 import Footer from './components/Footer';
+import Preloader from './components/Preloader';
 import Home from './pages/Home';
 import VivekSingh from './pages/VivekSingh';
 import Courses from './pages/Courses';
@@ -15,10 +17,16 @@ const NavigationWrapper = () => {
 };
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <BrowserRouter>
-      <NavigationWrapper />
-      <main style={{ minHeight: '100vh', paddingTop: 'var(--nav-height)' }}>
+    <>
+      <Preloader onLoadingComplete={() => setLoading(false)} />
+      
+      {!loading && (
+        <BrowserRouter>
+          <NavigationWrapper />
+          <main style={{ minHeight: '100vh', paddingTop: 'var(--nav-height)' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/vivek-singh" element={<VivekSingh />} />
@@ -30,6 +38,8 @@ function App() {
       </main>
       <Footer />
     </BrowserRouter>
+      )}
+    </>
   );
 }
 

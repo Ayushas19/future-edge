@@ -4,7 +4,28 @@
 
 .agency-header {
   padding: 6rem 0 3rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.tech-animation-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tech-element {
+  position: absolute;
+  color: var(--accent-yellow);
+}
+
+.tech-element-1 { top: 20%; left: 15%; }
+.tech-element-2 { top: 60%; right: 15%; color: #4a90e2; }
+.tech-element-3 { top: 30%; right: 25%; }
+
+.relative { position: relative; }
+.z-10 { z-index: 10; }
 
 .trust-badges {
   display: flex;

@@ -64,6 +64,12 @@
 .btn-large {
   padding: 1rem 2.5rem;
   font-size: 1.125rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-large:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .hero-image-wrapper {
@@ -79,18 +85,65 @@
   max-width: 600px;
   height: auto;
   border-radius: 24px;
-  filter: drop-shadow(0 20px 40px rgba(254, 244, 122, 0.15));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
   position: relative;
   z-index: 10;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hero-image-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: var(--accent-yellow);
+  filter: blur(80px);
+  opacity: 0.3;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+/* Floating Badges */
+.floating-badge {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.25rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #141413;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge-1 {
+  top: 10%;
+  left: -5%;
+}
+
+.badge-2 {
+  bottom: 20%;
+  right: -5%;
+}
+
+.badge-3 {
+  top: 40%;
+  right: -10%;
 }
 
 /* Background Glows */
 .hero-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(140px);
   z-index: 1;
-  opacity: 0.15;
+  opacity: 0.25;
 }
 
 .hero-glow-1 {

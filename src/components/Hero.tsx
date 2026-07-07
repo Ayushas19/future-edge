@@ -7,10 +7,10 @@ const Hero = () => {
       {/* Background Shapes / Glows */}
       <div className="hero-glow hero-glow-1" />
       <div className="hero-glow hero-glow-2" />
-      
+
       <div className="container hero-container">
         <div className="hero-grid">
-          <motion.div 
+          <motion.div
             className="hero-content"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -21,7 +21,7 @@ const Hero = () => {
                 Future Edge.
               </motion.div>
               <br />
-              <motion.span 
+              <motion.span
                 className="text-gradient"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -30,12 +30,12 @@ const Hero = () => {
                 Best Digital Marketing.
               </motion.span>
             </h1>
-            
+
             <p className="hero-subtitle">
-              Experience <span className="highlight">2x - 5x performance</span> with AI optimized campaigns. 
+              Experience <span className="highlight">2x - 5x performance</span> with AI optimized campaigns.
               Yield good ROI on the same ad spend.
             </p>
-            
+
             <div className="hero-actions">
               <a href="tel:+916393213527" className="btn btn-primary btn-large">
                 Contact Us Now
@@ -46,15 +46,15 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="hero-image-wrapper"
             initial={{ opacity: 0, x: 50, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            <motion.img 
-              src="/images/hero_marketing.png" 
-              alt="Digital Marketing AI" 
+            <motion.img
+              src="/images/hero_marketing.png"
+              alt="Digital Marketing AI"
               className="hero-image"
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}

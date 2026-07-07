@@ -30,10 +30,10 @@ const TypewriterText = ({ text, delay = 100 }: { text: string; delay?: number })
 
 const Preloader = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => {
   useEffect(() => {
-    // "Future Edge." is 12 chars. Wait 2.5s total before completing.
+    // "Future Edge." is 12 chars. delay=60 means ~720ms. Wait 1200ms total before completing.
     const timer = setTimeout(() => {
       onLoadingComplete();
-    }, 2500);
+    }, 1200);
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
 
@@ -46,7 +46,7 @@ const Preloader = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => 
       style={{ backgroundColor: '#141413' }}
     >
       <motion.div layoutId="hero-title" className="preloader-title">
-        <TypewriterText text="Future Edge." delay={120} />
+        <TypewriterText text="Future Edge." delay={60} />
       </motion.div>
     </motion.div>
   );

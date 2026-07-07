@@ -144,6 +144,13 @@
   filter: blur(140px);
   z-index: 1;
   opacity: 0.25;
+  animation: floatBackground 15s ease-in-out infinite alternate;
+}
+
+@keyframes floatBackground {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, 10%) scale(1.1); }
+  100% { transform: translate(-5%, -5%) scale(0.9); }
 }
 
 .hero-glow-1 {
@@ -152,6 +159,7 @@
   width: 50vw;
   height: 50vw;
   background-color: var(--accent-yellow);
+  animation-duration: 20s;
 }
 
 .hero-glow-2 {
@@ -160,6 +168,8 @@
   width: 40vw;
   height: 40vw;
   background-color: #4a90e2; 
+  animation-duration: 25s;
+  animation-delay: -5s;
 }
 
 @media (max-width: 768px) {

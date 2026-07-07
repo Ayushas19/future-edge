@@ -1,43 +1,13 @@
-import { motion } from 'framer-motion';
-import { PlayCircle, CheckCircle, ArrowRight, Code, Database, Globe } from 'lucide-react';
+import { PlayCircle, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import Hero from '../components/Hero';
 import ServicesCarousel from '../components/ServicesCarousel';
 
 const Home = () => {
   return (
     <div className="agency-page">
-      {/* HEADER & TRUST METRICS */}
-      <section className="agency-header text-center">
-        {/* Tech Animation Background */}
-        <div className="tech-animation-bg">
-           <motion.div className="tech-element tech-element-1" animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 4, repeat: Infinity }}><Code size={40} /></motion.div>
-           <motion.div className="tech-element tech-element-2" animate={{ y: [0, 20, 0], opacity: [0.2, 0.5, 0.2] }} transition={{ duration: 5, repeat: Infinity }}><Database size={32} /></motion.div>
-           <motion.div className="tech-element tech-element-3" animate={{ rotate: [0, 180, 360], opacity: [0.1, 0.4, 0.1] }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}><Globe size={64} /></motion.div>
-        </div>
-
-        <div className="container relative z-10">
-          <div className="trust-badges">
-            <span className="badge badge-trust">Trusted by 50+ Nation & Y.T.</span>
-            <span className="badge badge-trust">1000+ Students & Colleges</span>
-          </div>
-          
-          <motion.h1 
-            className="heading-display mt-4"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <span className="text-gradient-brand">Future Edge</span><br />
-            <span className="text-gradient">BEST D.M. Co.</span>
-          </motion.h1>
-          
-          <div className="hook-banner">
-            <h3>Why D.M. in 2026?</h3>
-            <p>Digital Marketing is no longer an option, it's the lifeline of modern business scaling.</p>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* CORE NAVIGATION / ACTION BUTTONS */}
       <section className="agency-actions">

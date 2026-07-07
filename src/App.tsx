@@ -9,6 +9,7 @@ import VivekSingh from './pages/VivekSingh';
 import Courses from './pages/Courses';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import Blog from './pages/Blog';
 
 const NavigationWrapper = () => {
   const location = useLocation();
@@ -34,6 +35,7 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/terms-and-conditions" element={<Terms />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       </main>
       <Footer />

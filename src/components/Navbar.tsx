@@ -18,6 +18,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Courses', href: '/courses' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms & Conditions', href: '/terms-and-conditions' },
   ];

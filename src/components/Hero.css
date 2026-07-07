@@ -6,24 +6,33 @@
   overflow: hidden;
   padding-top: var(--nav-height);
   perspective: 1200px;
+  max-width: 100vw;
 }
 
 .hero-container {
   position: relative;
   z-index: 10;
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding: 0 1rem;
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
+  .hero-container {
+    overflow-x: visible;
+  }
   .hero-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
 }
 
@@ -51,10 +60,14 @@
   z-index: 2;
 }
 
-.text-gradient {
-  background: linear-gradient(to right, #ffffff, var(--accent-yellow));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-high-contrast {
+  color: #111111;
+  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.8);
+}
+
+.text-high-contrast-secondary {
+  color: #333333;
+  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.8);
 }
 
 .word-wrapper {
@@ -151,37 +164,47 @@
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   padding: 0.85rem 1.5rem;
   border-radius: 100px;
   font-weight: 600;
   font-size: 0.9375rem;
-  color: #141413;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  color: #111111;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
   z-index: 20;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   will-change: transform;
 }
 
 .badge-icon {
-  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #ffffff;
 }
+
+.icon-roi { background: #10B981; }
+.icon-target { background: #EF4444; }
+.icon-ai { background: #6366F1; }
 
 .badge-1 {
   top: 15%;
-  left: -8%;
+  left: -2%;
 }
 
 .badge-2 {
-  bottom: 25%;
-  right: -8%;
+  bottom: 20%;
+  right: -2%;
 }
 
 .badge-3 {
-  top: 45%;
-  right: -12%;
+  top: 40%;
+  right: -5%;
 }
 
 /* Background Glows Tracking */

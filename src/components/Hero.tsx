@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import { TrendingUp, Target, Cpu } from 'lucide-react';
 import './Hero.css';
 
 const MagneticButton = ({ children, className, href }: any) => {
@@ -80,12 +81,12 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="heading-display">
-              <motion.div layoutId="hero-title" className="text-gradient-brand" style={{ display: 'inline-block' }}>
+              <motion.div layoutId="hero-title" className="text-high-contrast" style={{ display: 'inline-block' }}>
                 Future Edge.
               </motion.div>
               <br />
               <div className="kinematic-wrapper">
-                <span className="text-gradient">Best Digital Marketing.</span>
+                <span className="text-high-contrast-secondary">Best Digital Marketing.</span>
                 <motion.div 
                   className="kinematic-mask"
                   initial={{ width: "100%" }}
@@ -138,7 +139,7 @@ const Hero = () => {
                 className="floating-badge badge-1"
                 style={{ translateZ: 50 }}
               >
-                <div className="badge-icon">📈</div>
+                <div className="badge-icon icon-roi"><TrendingUp size={20} /></div>
                 <div className="badge-text">+300% ROI</div>
               </motion.div>
               
@@ -146,7 +147,7 @@ const Hero = () => {
                 className="floating-badge badge-2"
                 style={{ translateZ: 80 }}
               >
-                <div className="badge-icon">🎯</div>
+                <div className="badge-icon icon-target"><Target size={20} /></div>
                 <div className="badge-text">Targeted Ads</div>
               </motion.div>
 
@@ -154,7 +155,7 @@ const Hero = () => {
                 className="floating-badge badge-3"
                 style={{ translateZ: 100 }}
               >
-                <div className="badge-icon">🤖</div>
+                <div className="badge-icon icon-ai"><Cpu size={20} /></div>
                 <div className="badge-text">AI Optimized</div>
               </motion.div>
 

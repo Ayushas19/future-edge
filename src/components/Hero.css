@@ -194,17 +194,17 @@
 
 .badge-1 {
   top: 15%;
-  left: -2%;
+  left: 2%;
 }
 
 .badge-2 {
   bottom: 20%;
-  right: -2%;
+  right: 5%;
 }
 
 .badge-3 {
   top: 40%;
-  right: -5%;
+  right: 2%;
 }
 
 /* Background Glows Tracking */

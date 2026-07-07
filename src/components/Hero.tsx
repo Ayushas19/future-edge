@@ -1,7 +1,33 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TrendingUp, Target, Cpu } from 'lucide-react';
 import './Hero.css';
+
+const TypewriterText = ({ text, delay = 100 }: { text: string; delay?: number }) => {
+  const [currentText, setCurrentText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, delay);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, delay, text]);
+
+  return (
+    <span className="text-high-contrast" style={{ display: 'inline-block' }}>
+      {currentText}
+      <motion.span 
+        animate={{ opacity: [1, 0] }} 
+        transition={{ repeat: Infinity, duration: 0.8 }}
+        style={{ display: 'inline-block', width: '3px', marginLeft: '2px', backgroundColor: '#111111', height: '0.8em', verticalAlign: 'baseline' }}
+      />
+    </span>
+  );
+};
 
 const MagneticButton = ({ children, className, href }: any) => {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -81,19 +107,16 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="heading-display">
-              <motion.div layoutId="hero-title" className="text-high-contrast" style={{ display: 'inline-block' }}>
-                Future Edge.
-              </motion.div>
+              <TypewriterText text="Future Edge." delay={120} />
               <br />
-              <div className="kinematic-wrapper">
-                <span className="text-high-contrast-secondary">Best Digital Marketing.</span>
-                <motion.div 
-                  className="kinematic-mask"
-                  initial={{ width: "100%" }}
-                  animate={{ width: "0%" }}
-                  transition={{ delay: 0.8, duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                />
-              </div>
+              <motion.span 
+                className="text-high-contrast-secondary"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.0, duration: 0.8 }}
+              >
+                Best Digital Marketing.
+              </motion.span>
             </h1>
             
             <p className="hero-subtitle">

@@ -5,6 +5,7 @@
   align-items: center;
   overflow: hidden;
   padding-top: var(--nav-height);
+  perspective: 1200px;
 }
 
 .hero-container {
@@ -32,12 +33,39 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
+  z-index: 20;
+}
+
+/* Kinematic Typography */
+.kinematic-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.kinematic-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color); /* Hides text, animates width to 0 */
+  z-index: 2;
 }
 
 .text-gradient {
   background: linear-gradient(to right, #ffffff, var(--accent-yellow));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.word-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 0.25em;
+  vertical-align: top;
+}
+
+.word-wrapper > span {
+  display: inline-block;
 }
 
 .hero-subtitle {
@@ -61,15 +89,26 @@
   justify-content: flex-start;
 }
 
+/* Magnetic Buttons */
 .btn-large {
   padding: 1rem 2.5rem;
   font-size: 1.125rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .btn-large:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(254, 244, 122, 0.15);
+}
+
+/* 3D Scene */
+.hero-3d-scene {
+  perspective: 1200px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-image-wrapper {
@@ -78,6 +117,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  will-change: transform;
 }
 
 .hero-image {
@@ -85,91 +125,89 @@
   max-width: 600px;
   height: auto;
   border-radius: 24px;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.2));
   position: relative;
   z-index: 10;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateZ(20px);
 }
 
 .hero-image-glow {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
+  transform: translate(-50%, -50%) translateZ(-50px);
+  width: 90%;
+  height: 90%;
   background: var(--accent-yellow);
-  filter: blur(80px);
-  opacity: 0.3;
+  filter: blur(100px);
+  opacity: 0.35;
   z-index: 1;
   border-radius: 50%;
 }
 
-/* Floating Badges */
+/* 3D Floating Badges */
 .floating-badge {
   position: absolute;
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.85rem 1.5rem;
   border-radius: 100px;
   font-weight: 600;
   font-size: 0.9375rem;
   color: #141413;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   z-index: 20;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  will-change: transform;
+}
+
+.badge-icon {
+  font-size: 1.25rem;
 }
 
 .badge-1 {
-  top: 10%;
-  left: -5%;
+  top: 15%;
+  left: -8%;
 }
 
 .badge-2 {
-  bottom: 20%;
-  right: -5%;
+  bottom: 25%;
+  right: -8%;
 }
 
 .badge-3 {
-  top: 40%;
-  right: -10%;
+  top: 45%;
+  right: -12%;
 }
 
-/* Background Glows */
+/* Background Glows Tracking */
 .hero-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(140px);
+  filter: blur(160px);
   z-index: 1;
   opacity: 0.25;
-  animation: floatBackground 15s ease-in-out infinite alternate;
-}
-
-@keyframes floatBackground {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(5%, 10%) scale(1.1); }
-  100% { transform: translate(-5%, -5%) scale(0.9); }
+  will-change: transform;
 }
 
 .hero-glow-1 {
   top: -10%;
   left: -10%;
-  width: 50vw;
-  height: 50vw;
+  width: 55vw;
+  height: 55vw;
   background-color: var(--accent-yellow);
-  animation-duration: 20s;
 }
 
 .hero-glow-2 {
   bottom: -10%;
   right: -10%;
-  width: 40vw;
-  height: 40vw;
+  width: 45vw;
+  height: 45vw;
   background-color: #4a90e2; 
-  animation-duration: 25s;
-  animation-delay: -5s;
 }
 
 @media (max-width: 768px) {

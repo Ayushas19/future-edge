@@ -1,50 +1,54 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import './Preloader.css';
 
-const Preloader = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => {
-  const [isVisible, setIsVisible] = useState(true);
+const TypewriterText = ({ text, delay = 100 }: { text: string; delay?: number }) => {
+  const [currentText, setCurrentText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Simulate initial loading time
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, delay);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, delay, text]);
+
+  return (
+    <span style={{ color: 'var(--accent-yellow)' }}>
+      {currentText}
+      <motion.span 
+        animate={{ opacity: [1, 0] }} 
+        transition={{ repeat: Infinity, duration: 0.8 }}
+        style={{ display: 'inline-block', width: '4px', marginLeft: '4px', backgroundColor: 'var(--accent-yellow)', height: '0.8em', verticalAlign: 'baseline' }}
+      />
+    </span>
+  );
+};
+
+const Preloader = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => {
+  useEffect(() => {
+    // "Future Edge." is 12 chars. Wait 2.5s total before completing.
     const timer = setTimeout(() => {
-      setIsVisible(false);
-      setTimeout(onLoadingComplete, 800); // Wait for exit animation
-    }, 1500);
+      onLoadingComplete();
+    }, 2500);
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div 
-          className="preloader"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        >
-          <div className="loader-content">
-            <motion.div 
-              className="loader-ring"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.div 
-              className="loader-ring loader-ring-inner"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.div 
-              className="loader-text"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              FE
-            </motion.div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <motion.div 
+      className="preloader cinematic-preloader"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      style={{ backgroundColor: '#141413' }}
+    >
+      <motion.div layoutId="hero-title" className="preloader-title">
+        <TypewriterText text="Future Edge." delay={120} />
+      </motion.div>
+    </motion.div>
   );
 };
 

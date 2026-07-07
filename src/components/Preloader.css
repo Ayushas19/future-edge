@@ -47,3 +47,25 @@
   -webkit-text-fill-color: transparent;
   position: absolute;
 }
+
+.cinematic-preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.preloader-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-family: var(--font-primary);
+}
+
+@media (min-width: 768px) {
+  .preloader-title {
+    font-size: 5rem;
+  }
+}

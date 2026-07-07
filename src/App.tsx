@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { LayoutGroup, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import VivekNavbar from './components/VivekNavbar';
 import Footer from './components/Footer';
@@ -21,8 +22,10 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <>
-      <Preloader onLoadingComplete={() => setLoading(false)} />
+    <LayoutGroup>
+      <AnimatePresence>
+        {loading && <Preloader onLoadingComplete={() => setLoading(false)} />}
+      </AnimatePresence>
       
       {!loading && (
         <BrowserRouter>
@@ -41,7 +44,7 @@ function App() {
       <Footer />
     </BrowserRouter>
       )}
-    </>
+    </LayoutGroup>
   );
 }
 

@@ -1,34 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import './Hero.css';
-
-const TypewriterText = ({ text, delay = 100 }: { text: string; delay?: number }) => {
-  const [currentText, setCurrentText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, delay);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, delay, text]);
-
-  return (
-    <span className="text-gradient-brand">
-      {currentText}
-      <motion.span 
-        animate={{ opacity: [1, 0] }} 
-        transition={{ repeat: Infinity, duration: 0.8 }}
-        style={{ color: 'var(--accent-yellow)', display: 'inline-block', width: '2px', marginLeft: '4px' }}
-      >
-        |
-      </motion.span>
-    </span>
-  );
-};
 
 const Hero = () => {
   return (
@@ -46,12 +17,15 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="heading-display">
-              <TypewriterText text="Future Edge." delay={150} /><br />
+              <motion.div layoutId="hero-title" className="text-gradient-brand" style={{ display: 'inline-block' }}>
+                Future Edge.
+              </motion.div>
+              <br />
               <motion.span 
                 className="text-gradient"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2.2, duration: 0.8 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
               >
                 Best Digital Marketing.
               </motion.span>

@@ -2,212 +2,186 @@
   background: var(--bg-primary);
 }
 
-.agency-header {
-  padding: 6rem 0 3rem;
-  position: relative;
-  overflow: hidden;
+.text-center {
+  text-align: center;
 }
 
-.tech-animation-bg {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 0;
-  pointer-events: none;
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+/* STATISTICS SECTION */
+.stats-section {
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
-.tech-element {
-  position: absolute;
-  color: var(--accent-yellow);
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
-.tech-element-1 { top: 20%; left: 15%; }
-.tech-element-2 { top: 60%; right: 15%; color: #4a90e2; }
-.tech-element-3 { top: 30%; right: 25%; }
-
-.relative { position: relative; }
-.z-10 { z-index: 10; }
-
-.trust-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 }
 
-.badge-trust {
-  background: var(--accent-yellow);
-  color: #141413;
-  border: 1px solid rgba(20, 20, 19, 0.1);
-  font-weight: 600;
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
-.mt-4 {
-  margin-top: 2rem;
-}
-
-.hook-banner {
-  margin: 3rem auto 0;
-  max-width: 600px;
-  background: var(--card-bg);
+.stat-card {
+  text-align: center;
   padding: 1.5rem;
+  background: var(--bg-primary);
   border-radius: 16px;
   border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hook-banner h3 {
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
   color: var(--accent-yellow);
   margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
 }
 
-.action-buttons-flex {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
-.justify-center {
-  justify-content: center;
+/* ABOUT SECTION */
+.about-section {
+  background-color: var(--bg-primary);
 }
 
-.w-full {
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.about-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.about-image-wrapper {
+  position: relative;
   width: 100%;
+  height: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.team-banner {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 1.5rem 2rem;
-  flex-wrap: wrap;
-  gap: 2rem;
+.about-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2c3e50, #000000);
+  position: relative;
 }
 
-.team-founder, .team-expert {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.image-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--accent-yellow);
+  opacity: 0.1;
+  mix-blend-mode: overlay;
 }
 
-.split-grid {
+.placeholder-text {
+  color: #fff;
+  z-index: 10;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+/* FEATURES SECTION */
+.features-section {
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+.features-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-@media (min-width: 1024px) {
-  .split-grid {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.funnel-col {
-  background: var(--card-bg);
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.feature-card {
+  background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 24px;
-  padding: 2.5rem;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-}
-
-.course-funnel {
-  border-top: 4px solid #4a90e2; /* Distinguish course side */
-}
-
-.services-funnel {
-  border-top: 4px solid var(--accent-yellow); /* Distinguish services side */
-}
-
-.funnel-header {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.video-embed {
-  background: rgba(20, 20, 19, 0.02);
-  border-radius: 12px;
-  height: 250px;
-  flex-direction: column;
   gap: 1rem;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-  margin-bottom: 1.5rem;
 }
 
-.play-icon {
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  border-color: var(--accent-yellow);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--text-primary);
   color: var(--accent-yellow);
-}
-
-.funnel-details {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.detail-item {
-  background: rgba(20, 20, 19, 0.02);
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 3px solid var(--accent-yellow);
-}
-
-.intro-text {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-}
-
-.service-pillars {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.pillar-block {
-  background: var(--accent-yellow);
-  border: 1px solid rgba(20, 20, 19, 0.1);
-  color: #141413;
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: left;
-  font-weight: 400;
-}
-
-.process-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.process-list li {
+  border-radius: 16px;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.feature-desc {
   color: var(--text-secondary);
-}
-
-.text-accent {
-  color: var(--accent-yellow);
-}
-
-.mini-testimony {
-  background: rgba(20, 20, 19, 0.03);
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-}
-
-.text-secondary {
-  color: var(--text-secondary);
-}
-
-.social-proof-small {
-  text-align: center;
-  color: var(--text-secondary);
-  font-weight: 500;
+  line-height: 1.6;
 }

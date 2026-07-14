@@ -1,33 +1,11 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { TrendingUp, Target, Cpu } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
-const TypewriterText = ({ text, delay = 100 }: { text: string; delay?: number }) => {
-  const [currentText, setCurrentText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
+const MotionLink = motion(Link);
 
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, delay);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, delay, text]);
-
-  return (
-    <span className="text-high-contrast" style={{ display: 'inline-block' }}>
-      {currentText}
-      <motion.span 
-        animate={{ opacity: [1, 0] }} 
-        transition={{ repeat: Infinity, duration: 0.8 }}
-        style={{ display: 'inline-block', width: '3px', marginLeft: '2px', backgroundColor: '#111111', height: '0.8em', verticalAlign: 'baseline' }}
-      />
-    </span>
-  );
-};
 
 const MagneticButton = ({ children, className, href }: any) => {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -51,8 +29,8 @@ const MagneticButton = ({ children, className, href }: any) => {
   };
 
   return (
-    <motion.a
-      href={href}
+    <MotionLink
+      to={href}
       ref={ref}
       className={className}
       onMouseMove={handleMouse}
@@ -62,7 +40,7 @@ const MagneticButton = ({ children, className, href }: any) => {
       whileTap={{ scale: 0.95 }}
     >
       {children}
-    </motion.a>
+    </MotionLink>
   );
 };
 
@@ -89,7 +67,7 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const subtitleWords = "Experience 2x-5x performance with AI optimized campaigns. Yield good ROI on the same ad spend.".split(" ");
+  const subtitleWords = "Future Edge Digital Marketing helps businesses grow through data-driven marketing strategies, SEO, performance marketing, social media management, website development, branding, AI-powered automation, and digital marketing training. We don't just market businesses—we build sustainable growth engines.".split(" ");
 
   return (
     <section className="hero">
@@ -107,15 +85,18 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="heading-display">
-              <TypewriterText text="Future Edge." delay={120} />
+              <span className="text-high-contrast" style={{ display: 'inline-block' }}>
+                Kanpur's Leading Digital Marketing Agency
+              </span>
               <br />
               <motion.span 
                 className="text-high-contrast-secondary"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2.0, duration: 0.8 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+                style={{ fontSize: '0.6em', marginTop: '0.5em', display: 'inline-block' }}
               >
-                Best Digital Marketing.
+                Driving Measurable Business Growth
               </motion.span>
             </h1>
             
@@ -140,12 +121,35 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8, duration: 0.8 }}
             >
-              <MagneticButton href="tel:+916393213527" className="btn btn-primary btn-large">
-                Contact Us Now
+              <MagneticButton href="/contact" className="btn btn-primary btn-large">
+                Book Free Consultation
               </MagneticButton>
-              <MagneticButton href="#services" className="btn btn-outline btn-large">
-                View Services
+              <MagneticButton href="/contact" className="btn btn-outline btn-large">
+                View Our Portfolio
               </MagneticButton>
+            </motion.div>
+
+            <motion.div 
+              className="hero-trust-badges"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 2.2, duration: 0.8 }}
+            >
+              <div className="trust-badge">
+                <CheckCircle size={16} className="text-accent" /> ROI Focused Marketing
+              </div>
+              <div className="trust-badge">
+                <CheckCircle size={16} className="text-accent" /> MBA Marketing Experts
+              </div>
+              <div className="trust-badge">
+                <CheckCircle size={16} className="text-accent" /> Google & Meta Ads Specialists
+              </div>
+              <div className="trust-badge">
+                <CheckCircle size={16} className="text-accent" /> Ethical White-Hat Strategies
+              </div>
+              <div className="trust-badge">
+                <CheckCircle size={16} className="text-accent" /> End-to-End Marketing Solutions
+              </div>
             </motion.div>
           </motion.div>
 
@@ -158,29 +162,7 @@ const Hero = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
             >
-              <motion.div 
-                className="floating-badge badge-1"
-                style={{ translateZ: 50 }}
-              >
-                <div className="badge-icon icon-roi"><TrendingUp size={20} /></div>
-                <div className="badge-text">+300% ROI</div>
-              </motion.div>
-              
-              <motion.div 
-                className="floating-badge badge-2"
-                style={{ translateZ: 80 }}
-              >
-                <div className="badge-icon icon-target"><Target size={20} /></div>
-                <div className="badge-text">Targeted Ads</div>
-              </motion.div>
-
-              <motion.div 
-                className="floating-badge badge-3"
-                style={{ translateZ: 100 }}
-              >
-                <div className="badge-icon icon-ai"><Cpu size={20} /></div>
-                <div className="badge-text">AI Optimized</div>
-              </motion.div>
+              {/* Badges removed for cleaner layout */}
 
               <img 
                 src="/images/hero_marketing.png" 

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Blog.css';
 
 const blogPosts = [
@@ -64,9 +65,9 @@ const Blog = () => {
                 </div>
                 <h3>{post.title}</h3>
                 <p>{post.excerpt}</p>
-                <a href="#" className="blog-link">
-                  Read More <ArrowRight size={16} />
-                </a>
+                <Link to="/learn-more" className="blog-link">
+                  Read Article <ArrowRight size={16} className="ml-2" />
+                </Link>
               </div>
             </motion.div>
           ))}

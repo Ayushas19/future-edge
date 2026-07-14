@@ -17,10 +17,11 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Courses', href: '/courses' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Services', href: '/digital-marketing-services-kanpur' },
+    { name: 'Courses', href: '/digital-marketing-courses-kanpur' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Privacy Policy', href: '/privacy-policy' },
-    { name: 'Terms & Conditions', href: '/terms-and-conditions' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   return (

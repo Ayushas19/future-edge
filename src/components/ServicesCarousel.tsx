@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './ServicesCarousel.css';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
@@ -15,6 +16,7 @@ const services = [
     tags: ['Paid Ads', 'ROI', 'Performance'],
     image: '/images/hero_marketing.png',
     stats: '150% Avg Growth',
+    slug: 'ai-automation'
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ const services = [
     tags: ['Social Media', 'Organic'],
     image: '/images/social_media_icon.png',
     stats: '100+ Templates',
+    slug: 'social-media-marketing'
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ const services = [
     tags: ['Automation', 'Support'],
     image: '/images/crm_dashboard.png',
     stats: '24/7 Support',
+    slug: 'ai-automation'
   }
 ];
 
@@ -89,7 +93,9 @@ const ServicesCarousel = () => {
                       </div>
                       <div className="models-card-bottom-dot" />
                       <div className="model-card-likes">
-                        <span className="learn-more">Learn More <ArrowRight size={14} /></span>
+                        <Link to={`/service/${service.slug}`}>
+                          <span className="learn-more">Learn More <ArrowRight size={14} /></span>
+                        </Link>
                       </div>
                     </div>
                   </div>

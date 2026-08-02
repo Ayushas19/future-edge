@@ -150,7 +150,14 @@ export function initHero3D() {
   treeGroup.add(leafParticles);
 
   // Initial Tree Scale & Position
-  treeGroup.position.set(3.2, -2, 0);
+  function updateTreeLayout() {
+    if (window.innerWidth <= 992) {
+      treeGroup.position.set(0, -2.5, 0); // Center on mobile, slightly lower
+    } else {
+      treeGroup.position.set(3.2, -2, 0); // Right side on desktop
+    }
+  }
+  updateTreeLayout();
   treeGroup.scale.set(0.55, 0.55, 0.55);
 
   // Mouse Parallax Interaction
@@ -207,6 +214,7 @@ export function initHero3D() {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
+    updateTreeLayout();
   });
 }
 

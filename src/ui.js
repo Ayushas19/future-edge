@@ -275,7 +275,7 @@ export function initUI() {
           progress = Math.min(1, Math.abs(start) / rect.height);
         }
         
-        timelineTrack.style.setProperty('--scroll-fill', \\%\);
+        timelineTrack.style.setProperty('--scroll-fill', `${progress * 100}%`);
       });
     }
   }

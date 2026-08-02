@@ -243,4 +243,41 @@ export function initUI() {
   document.querySelectorAll('.reveal-up').forEach(el => {
     revealObserver.observe(el);
   });
+  // Initialize IntersectionObserver for Timeline
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const timelineTrack = document.querySelector('.timeline-track');
+  
+  if (timelineItems.length > 0) {
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: "0px 0px -100px 0px"
+    });
+    
+    timelineItems.forEach(item => timelineObserver.observe(item));
+
+    // Optional: Update the scroll-fill custom property on track based on scroll depth of container
+    const timelineContainer = document.querySelector('.timeline-container');
+    if (timelineContainer && timelineTrack) {
+      window.addEventListener('scroll', () => {
+        const rect = timelineContainer.getBoundingClientRect();
+        const winHeight = window.innerHeight;
+        // Calculate how much of the timeline container has been scrolled past the middle of the screen
+        const start = rect.top - winHeight / 2;
+        
+        let progress = 0;
+        if (start < 0) {
+          progress = Math.min(1, Math.abs(start) / rect.height);
+        }
+        
+        timelineTrack.style.setProperty('--scroll-fill', \\%\);
+      });
+    }
+  }
 }
+

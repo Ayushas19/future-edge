@@ -10,22 +10,22 @@
   --bg-cream-light: #FFFDF9;
   --bg-card: #FFFFFF;
   
-  --gold-primary: #F3C544; /* Matches logo yellow */
-  --gold-hover: #DDAA22; 
-  --gold-light: #FCE888;
-  --gold-amber: #EAB308;
-  --gold-pale: #FEF9D6;
-  --gold-glow: rgba(243, 197, 68, 0.35);
-  --gold-border: rgba(243, 197, 68, 0.25);
+  --gold-primary: #E6B52A; /* Slightly darker yellow */
+  --gold-hover: #CC9911; 
+  --gold-light: #F9E076;
+  --gold-amber: #D99A05;
+  --gold-pale: #FEF6CA;
+  --gold-glow: rgba(230, 181, 42, 0.35);
+  --gold-border: rgba(230, 181, 42, 0.25);
   
   --text-dark: #1C1917;
   --text-body: #44403C;
   --text-muted: #78716C;
   --text-gold: #B8860B; /* Darker yellow/gold for text readability */
 
-  --gradient-gold: linear-gradient(135deg, #FCE888 0%, #F3C544 60%, #DDAA22 100%);
+  --gradient-gold: linear-gradient(135deg, #F9E076 0%, #E6B52A 60%, #CC9911 100%);
   --gradient-cream-card: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
-  --gradient-gold-subtle: linear-gradient(135deg, rgba(254, 249, 214, 0.8) 0%, rgba(252, 232, 136, 0.3) 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, rgba(254, 246, 202, 0.8) 0%, rgba(249, 224, 118, 0.3) 100%);
   
   --shadow-sm: 0 4px 12px rgba(28, 25, 23, 0.04);
   --shadow-md: 0 12px 24px -6px rgba(217, 119, 6, 0.08), 0 4px 12px rgba(28, 25, 23, 0.03);

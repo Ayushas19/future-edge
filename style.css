@@ -195,7 +195,7 @@ ul {
 
 /* Global Button Hover & Active States (Amity Navy Blue) */
 .btn:hover, .btn:active, .btn:focus {
-  background: var(--primary-blue) !important;
+  background: var(--text-dark) !important;
   color: #FFFFFF !important;
   border-color: var(--text-dark) !important;
   box-shadow: 0 8px 20px rgba(26, 50, 93, 0.4) !important;
@@ -2423,10 +2423,10 @@ ul {
 /* Dark blue hover state for CTA buttons */
 .btn-primary-gold:hover, 
 .form-submit-btn:hover {
-  background-color: #0f172a !important; /* Dark Slate Blue */
+  background-color: var(--text-dark) !important;
   color: #ffffff !important;
-  border-color: #0f172a !important;
-  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.3) !important;
+  border-color: var(--text-dark) !important;
+  box-shadow: 0 10px 20px rgba(26, 50, 93, 0.3) !important;
   transform: translateY(-2px);
 }
 

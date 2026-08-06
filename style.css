@@ -10,22 +10,22 @@
   --bg-cream-light: #FFFDF9;
   --bg-card: #FFFFFF;
   
-  --gold-primary: #E6B52A; /* Slightly darker yellow */
-  --gold-hover: #CC9911; 
-  --gold-light: #F9E076;
-  --gold-amber: #D99A05;
-  --gold-pale: #FEF6CA;
-  --gold-glow: rgba(230, 181, 42, 0.35);
-  --gold-border: rgba(230, 181, 42, 0.25);
+  --gold-primary: #FFC907; /* Amity Yellow */
+  --gold-hover: #E5B506; 
+  --gold-light: #FFD234;
+  --gold-amber: #FFA500;
+  --gold-pale: #FFFEE0;
+  --gold-glow: rgba(255, 201, 7, 0.35);
+  --gold-border: rgba(255, 201, 7, 0.25);
   
-  --text-dark: #1C1917;
-  --text-body: #44403C;
-  --text-muted: #78716C;
-  --text-gold: #B8860B; /* Darker yellow/gold for text readability */
+  --text-dark: #1A325D; /* Amity Navy Blue */
+  --text-body: #2C4270; /* Softer Navy for body */
+  --text-muted: #65758B;
+  --text-gold: #003087; /* Using dark blue for highlighted text instead of gold for readability */
 
-  --gradient-gold: linear-gradient(135deg, #F9E076 0%, #E6B52A 60%, #CC9911 100%);
-  --gradient-cream-card: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
-  --gradient-gold-subtle: linear-gradient(135deg, rgba(254, 246, 202, 0.8) 0%, rgba(249, 224, 118, 0.3) 100%);
+  --gradient-gold: linear-gradient(135deg, #FFD234 0%, #FFC907 60%, #FFA500 100%);
+  --gradient-cream-card: linear-gradient(180deg, #FFFFFF 0%, #F5F7FA 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, rgba(255, 210, 52, 0.8) 0%, rgba(255, 201, 7, 0.3) 100%);
   
   --shadow-sm: 0 4px 12px rgba(28, 25, 23, 0.04);
   --shadow-md: 0 12px 24px -6px rgba(217, 119, 6, 0.08), 0 4px 12px rgba(28, 25, 23, 0.03);

@@ -193,12 +193,12 @@ ul {
   transform: translateY(-2px);
 }
 
-/* Global Button Hover & Active States (Blue) */
+/* Global Button Hover & Active States (Amity Navy Blue) */
 .btn:hover, .btn:active, .btn:focus {
-  background: #2563EB !important;
+  background: var(--text-dark) !important;
   color: #FFFFFF !important;
-  border-color: #2563EB !important;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4) !important;
+  border-color: var(--text-dark) !important;
+  box-shadow: 0 8px 20px rgba(26, 50, 93, 0.4) !important;
   transform: translateY(-2px);
 }
 

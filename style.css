@@ -19,8 +19,8 @@
   --gold-border: rgba(255, 201, 7, 0.25);
   
   --text-dark: #1A325D; /* Amity Navy Blue */
-  --text-body: #2C4270; /* Softer Navy for body */
-  --text-muted: #65758B;
+  --text-body: #1E293B; /* Dark slate for high contrast body */
+  --text-muted: #475569; /* Darker slate for muted text */
   --text-gold: #003087; /* Using dark blue for highlighted text instead of gold for readability */
 
   --gradient-gold: linear-gradient(135deg, #FFD234 0%, #FFC907 60%, #FFA500 100%);

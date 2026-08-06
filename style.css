@@ -163,6 +163,7 @@ ul {
   background: var(--gradient-gold);
   color: #FFFFFF;
   box-shadow: var(--shadow-gold);
+  border: 2px solid var(--text-dark);
 }
 
 .btn-primary-gold:hover {
@@ -182,14 +183,16 @@ ul {
 }
 
 .btn-secondary-cream {
-  background: var(--bg-card);
-  color: var(--text-dark);
-  border-color: var(--gold-border);
+  background: var(--text-dark);
+  color: #FFFFFF;
+  border: 2px solid #FFC907;
   box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary-cream:hover {
-  background: var(--bg-cream-alt);
+  background: #FFC907 !important;
+  color: var(--text-dark) !important;
+  border-color: var(--text-dark) !important;
   transform: translateY(-2px);
 }
 
@@ -213,7 +216,7 @@ ul {
 
 /* Announcement Top Bar */
 .announcement-bar {
-  background: var(--gradient-gold);
+  background: var(--text-dark);
   color: #FFFFFF;
   padding: 10px 0;
   font-size: 0.88rem;
@@ -229,7 +232,8 @@ ul {
 }
 
 .bar-badge {
-  background: rgba(255, 255, 255, 0.22);
+  background: var(--gold-primary);
+  color: var(--text-dark);
   padding: 2px 10px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
@@ -1978,7 +1982,8 @@ ul {
   .floating-contact { bottom: 18px; right: 14px; gap: 8px; }
 
   /* Section padding */
-  .section { padding: 56px 0; }
+  .section {
+  padding: 40px 0; }
 }
 
 /* --- Small Mobile (480px–767px) --- */
@@ -2700,3 +2705,5 @@ h1, h2, h3, h4, h5, h6, p {
   20% { left: 200%; }
   100% { left: 200%; }
 }
+
+

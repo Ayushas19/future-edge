@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +42,7 @@
   <div class="announcement-bar">
     <div class="container bar-inner">
       <span class="bar-badge">Uttar Pradesh's #1 Agency & Academy</span>
-      <p class="bar-text">We Don't Just Market Businesses — We Build Sustainable Growth Engines | Enjoy
+      <p class="bar-text">We Don't Just Market Businesses � We Build Sustainable Growth Engines | Enjoy
         <strong>Complimentary Marketing Strategy Consultation</strong></p>
       <a href="#contact" class="bar-link">Book Free Consultation &rarr;</a>
     </div>
@@ -203,7 +203,7 @@
             <!-- Article 5: Final CTA -->
             <article class="hero-message hero-message--final" data-start="0.80" data-end="1.00">
               <span class="eyebrow-chip"><span class="chip-dot"></span> Ready To Accelerate?</span>
-              <h2 class="hero-title">Let’s Build A Marketing Strategy<br /><span class="text-gold-gradient">That
+              <h2 class="hero-title">Let�s Build A Marketing Strategy<br /><span class="text-gold-gradient">That
                   Delivers Real Revenue</span></h2>
               <div class="hero-cta-group">
                 <a href="#contact" class="btn btn-primary-gold btn-lg">Book Free Strategy Session &rarr;</a>
@@ -424,9 +424,9 @@
           <p>Whether you're looking to increase leads, strengthen your brand, launch a new website, improve search
             rankings, or scale advertising campaigns, Future Edge Digital Marketing is ready to help.</p>
           <div class="cta-perks">
-            <span>✓ Strategy-First Approach</span>
-            <span>✓ MBA Qualified Mentors</span>
-            <span>✓ Transparent ROI Reporting</span>
+            <span>? Strategy-First Approach</span>
+            <span>? MBA Qualified Mentors</span>
+            <span>? Transparent ROI Reporting</span>
           </div>
         </div>
         <div class="cta-action-box">
@@ -496,9 +496,9 @@
             <li><a href="#">Disclaimer & Cookies</a></li>
             <li><a href="#">Sitemap</a></li>
             <li style="margin-top: 12px; display: flex; align-items: center; gap: 8px;">
-              <a href="partnership.html" style="margin-bottom: 0;">Franchise:</a>
+              <a href="partnership.html" style="margin-bottom: 0; white-space: nowrap;">Franchise:</a>
               <a href="partnership.html" class="btn btn-primary-gold shiny-btn"
-                style="padding: 4px 12px; font-size: 0.8rem; margin: 0;">Become a Partner</a>
+                style="padding: 4px 12px; font-size: 0.8rem; margin: 0; white-space: nowrap;">Become a Partner</a>
             </li>
           </ul>
         </div>
@@ -532,7 +532,7 @@
     <!-- Mobile Nav Drawer -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
     <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
-      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">?</button>
       <ul class="mobile-nav-list">
         <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
         <li><a href="about.html" onclick="closeMobileNav()">About Us</a></li>
@@ -554,7 +554,7 @@
 
     <!-- Inline JS: Mobile Nav + 3D Card Tilt + Scroll Reveal -->
     <script>
-      // ── Mobile Nav ──────────────────────────────────────────────────────────────
+      // -- Mobile Nav --------------------------------------------------------------
       const menuBtn = document.getElementById('menuToggle');
       const navDrawer = document.getElementById('mobileNavDrawer');
       const navOverlay = document.getElementById('mobileNavOverlay');
@@ -576,7 +576,7 @@
       if (navCloseBtn) navCloseBtn.addEventListener('click', closeMobileNav);
       if (navOverlay) navOverlay.addEventListener('click', closeMobileNav);
 
-      // ── 3D Card Tilt (desktop only — pointer: fine) ──────────────────────────────
+      // -- 3D Card Tilt (desktop only � pointer: fine) ------------------------------
       const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
       if (isFinePointer) {
@@ -587,8 +587,8 @@
             const cy = rect.top + rect.height / 2;
             const dx = (e.clientX - cx) / (rect.width / 2);
             const dy = (e.clientY - cy) / (rect.height / 2);
-            const rotateX = -dy * 8;   // max 8° vertical
-            const rotateY = dx * 8;   // max 8° horizontal
+            const rotateX = -dy * 8;   // max 8� vertical
+            const rotateY = dx * 8;   // max 8� horizontal
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(6px)`;
           });
 
@@ -598,7 +598,7 @@
         });
       }
 
-      // ── Scroll Reveal for service cards ─────────────────────────────────────────
+      // -- Scroll Reveal for service cards -----------------------------------------
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -612,7 +612,7 @@
         observer.observe(card);
       });
 
-      // ── Footer year ──────────────────────────────────────────────────────────────
+      // -- Footer year --------------------------------------------------------------
       const yr = document.getElementById('currentYear');
       if (yr) yr.textContent = new Date().getFullYear();
     </script>

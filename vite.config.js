@@ -14,7 +14,6 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about.html'),
         services: resolve(__dirname, 'services.html'),
-        adkrity: resolve(__dirname, 'adkrity.html'),
         academy: resolve(__dirname, 'academy.html'),
         faq: resolve(__dirname, 'faq.html'),
         privacy: resolve(__dirname, 'privacy-policy.html'),

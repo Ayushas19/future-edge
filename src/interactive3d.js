@@ -29,31 +29,7 @@ export function initInteractive3D() {
   light2.position.set(-5, -5, 2);
   scene.add(light2);
 
-  // AdKrity AI 3D Mesh - Torus Knot with Metallic Gold
-  const group = new THREE.Group();
-  scene.add(group);
-
-  const knotGeo = new THREE.TorusKnotGeometry(1.6, 0.45, 100, 16);
-  const knotMat = new THREE.MeshStandardMaterial({
-    color: 0xD97706,
-    metalness: 0.8,
-    roughness: 0.25,
-    wireframe: false
-  });
-  const knotMesh = new THREE.Mesh(knotGeo, knotMat);
-  group.add(knotMesh);
-
-  // Orbit Rings
-  const ringGeo = new THREE.RingGeometry(2.4, 2.45, 64);
-  const ringMat = new THREE.MeshBasicMaterial({
-    color: 0xFBBF24,
-    side: THREE.DoubleSide,
-    transparent: true,
-    opacity: 0.6
-  });
-  const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-  ringMesh.rotation.x = Math.PI / 3;
-  group.add(ringMesh);
+  
 
   // Animation Loop
   let clock = new THREE.Clock();

@@ -159,7 +159,7 @@ export function initUI() {
       if (goal === 'visibility') {
         plan = 'Google Business Profile + SEO Website Foundation + Local Meta Lead Ads';
       } else if (goal === 'leads') {
-        plan = 'Performance Meta & Google Ads + AdKrity AI CRM Lead Automation + High-Converting Landing Page';
+        plan = 'Performance Meta & Google Ads + High-Converting Landing Page';
       } else if (goal === 'brand') {
         plan = 'Personal Branding Package + Reel Content Creation + Executive Podcast Production';
       } else if (goal === 'website') {

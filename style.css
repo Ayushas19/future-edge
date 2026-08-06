@@ -1756,10 +1756,10 @@ ul {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--gradient-gold);
+  background: var(--text-dark);
   opacity: 0;
-  transition: opacity var(--transition-fast);
-  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  border-radius: var(--radius-full);
 }
 
 .svc3d-cta:hover {

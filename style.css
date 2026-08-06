@@ -1801,8 +1801,8 @@ ul {
 
 .svc3d-cta--featured::before { display: none; }
 .svc3d-cta--featured:hover {
-  opacity: 0.88;
-  color: #1C1917;
+  background: var(--text-dark);
+  color: #FFFFFF;
 }
 
 /* Floating animation for cards on scroll-in */

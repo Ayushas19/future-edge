@@ -42,7 +42,7 @@
   <div class="announcement-bar">
     <div class="container bar-inner">
       <span class="bar-badge">Uttar Pradesh's #1 Agency & Academy</span>
-      <p class="bar-text">We Don't Just Market Businesses — We Build Sustainable Growth Engines | Enjoy
+      <p class="bar-text">We Don't Just Market Businesses â€” We Build Sustainable Growth Engines | Enjoy
         <strong>Complimentary Marketing Strategy Consultation</strong></p>
       <a href="#contact" class="bar-link">Book Free Consultation &rarr;</a>
     </div>
@@ -93,6 +93,7 @@
               </div>
             </div>
           </li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="academy.html" class="nav-link">Academy</a></li>
           <li class="nav-item"><a href="partnership.html" class="nav-link">Partnership</a></li>
           <li class="nav-item"><a href="about.html#founder" class="nav-link">Founder</a></li>
@@ -203,7 +204,7 @@
             <!-- Article 5: Final CTA -->
             <article class="hero-message hero-message--final" data-start="0.80" data-end="1.00">
               <span class="eyebrow-chip"><span class="chip-dot"></span> Ready To Accelerate?</span>
-              <h2 class="hero-title">Let’s Build A Marketing Strategy<br /><span class="text-gold-gradient">That
+              <h2 class="hero-title">Letâ€™s Build A Marketing Strategy<br /><span class="text-gold-gradient">That
                   Delivers Real Revenue</span></h2>
               <div class="hero-cta-group">
                 <a href="#contact" class="btn btn-primary-gold btn-lg">Book Free Strategy Session &rarr;</a>
@@ -424,9 +425,9 @@
           <p>Whether you're looking to increase leads, strengthen your brand, launch a new website, improve search
             rankings, or scale advertising campaigns, Future Edge Digital Marketing is ready to help.</p>
           <div class="cta-perks">
-            <span>? Strategy-First Approach</span>
-            <span>? MBA Qualified Mentors</span>
-            <span>? Transparent ROI Reporting</span>
+            <span><i data-lucide="check-circle-2" style="color:var(--color-accent-yellow); margin-right:4px;"></i> Strategy-First Approach</span>
+            <span><i data-lucide="check-circle-2" style="color:var(--color-accent-yellow); margin-right:4px;"></i> MBA Qualified Mentors</span>
+            <span><i data-lucide="check-circle-2" style="color:var(--color-accent-yellow); margin-right:4px;"></i> Transparent ROI Reporting</span>
           </div>
         </div>
         <div class="cta-action-box">
@@ -481,6 +482,7 @@
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Future Edge</a></li>
+            <li><a href="blog.html">Blog &amp; Insights</a></li>
             <li><a href="about.html#founder">Meet Founder Vivek</a></li>
             <li><a href="services.html#industries">Industries We Serve</a></li>
             <li><a href="#contact">Contact Us</a></li>
@@ -532,11 +534,12 @@
     <!-- Mobile Nav Drawer -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
     <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
-      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">?</button>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i data-lucide="x"></i></button>
       <ul class="mobile-nav-list">
         <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
         <li><a href="about.html" onclick="closeMobileNav()">About Us</a></li>
         <li><a href="services.html" onclick="closeMobileNav()">Services</a></li>
+        <li><a href="blog.html" onclick="closeMobileNav()">Blog</a></li>
         <li><a href="academy.html" onclick="closeMobileNav()">Academy</a></li>
         <li><a href="partnership.html" onclick="closeMobileNav()">Partnership</a></li>
         <li><a href="about.html#founder" onclick="closeMobileNav()">Founder</a></li>
@@ -576,7 +579,7 @@
       if (navCloseBtn) navCloseBtn.addEventListener('click', closeMobileNav);
       if (navOverlay) navOverlay.addEventListener('click', closeMobileNav);
 
-      // -- 3D Card Tilt (desktop only — pointer: fine) ------------------------------
+      // -- 3D Card Tilt (desktop only â€” pointer: fine) ------------------------------
       const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
       if (isFinePointer) {
@@ -587,8 +590,8 @@
             const cy = rect.top + rect.height / 2;
             const dx = (e.clientX - cx) / (rect.width / 2);
             const dy = (e.clientY - cy) / (rect.height / 2);
-            const rotateX = -dy * 8;   // max 8° vertical
-            const rotateY = dx * 8;   // max 8° horizontal
+            const rotateX = -dy * 8;   // max 8Â° vertical
+            const rotateY = dx * 8;   // max 8Â° horizontal
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(6px)`;
           });
 
@@ -619,3 +622,4 @@
 </body>
 
 </html>
+

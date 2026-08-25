@@ -17,7 +17,9 @@ export default defineConfig({
         academy: resolve(__dirname, 'academy.html'),
         faq: resolve(__dirname, 'faq.html'),
         privacy: resolve(__dirname, 'privacy-policy.html'),
-        partnership: resolve(__dirname, 'partnership.html')
+        partnership: resolve(__dirname, 'partnership.html'),
+        blog: resolve(__dirname, 'blog.html'),
+        blogeditor: resolve(__dirname, 'blogeditor.html')
       }
     }
   }

@@ -35,7 +35,7 @@
   <div class="announcement-bar">
     <div class="container bar-inner">
       <span class="bar-badge">Uttar Pradesh's #1 Agency & Academy</span>
-      <p class="bar-text">We Don't Just Market Businesses — We Build Sustainable Growth Engines | Enjoy <strong>Complimentary Marketing Strategy Consultation</strong></p>
+      <p class="bar-text">We Don't Just Market Businesses â€” We Build Sustainable Growth Engines | Enjoy <strong>Complimentary Marketing Strategy Consultation</strong></p>
       <a href="#contact" class="bar-link">Book Free Consultation &rarr;</a>
     </div>
   </div>
@@ -85,7 +85,7 @@
               </div>
             </div>
           </li>
-          <li class="nav-item"><a href="academy.html" class="nav-link">Academy</a></li><li class="nav-item"><a href="partnership.html" class="nav-link">Partnership</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li><li class="nav-item"><a href="academy.html" class="nav-link">Academy</a></li><li class="nav-item"><a href="partnership.html" class="nav-link">Partnership</a></li>
           <li class="nav-item"><a href="about.html#founder" class="nav-link">Founder</a></li>
           <li class="nav-item"><a href="services.html#industries" class="nav-link">Industries</a></li>
           <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
@@ -223,6 +223,7 @@
         <h4>Company</h4>
         <ul>
           <li><a href="about.html">About Future Edge</a></li>
+          <li><a href="blog.html">Blog &amp; Insights</a></li>
           <li><a href="about.html#founder">Meet Founder Vivek</a></li>
           <li><a href="services.html#industries">Industries We Serve</a></li>
           <li><a href="#contact">Contact Us</a></li>
@@ -265,11 +266,12 @@
   <!-- Mobile Nav Drawer -->
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
   <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
-    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">âœ•</button>
     <ul class="mobile-nav-list">
       <li><a href="index.html" onclick="closeMobileNav()">Home</a></li>
       <li><a href="about.html" onclick="closeMobileNav()">About Us</a></li>
       <li><a href="services.html" onclick="closeMobileNav()">Services</a></li>
+      <li><a href="blog.html" onclick="closeMobileNav()">Blog</a></li>
       <li><a href="academy.html" onclick="closeMobileNav()">Academy</a></li><li><a href="partnership.html" onclick="closeMobileNav()">Partnership</a></li>
       <li><a href="about.html#founder" onclick="closeMobileNav()">Founder</a></li>
       <li><a href="services.html#industries" onclick="closeMobileNav()">Industries</a></li>
@@ -286,7 +288,7 @@
 
   <!-- Inline JS: Mobile Nav + 3D Card Tilt + Scroll Reveal -->
   <script>
-  // ── Mobile Nav ──────────────────────────────────────────────────────────────
+  // â”€â”€ Mobile Nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const menuBtn    = document.getElementById('menuToggle');
   const navDrawer  = document.getElementById('mobileNavDrawer');
   const navOverlay = document.getElementById('mobileNavOverlay');
@@ -308,7 +310,7 @@
   if (navCloseBtn) navCloseBtn.addEventListener('click', closeMobileNav);
   if (navOverlay) navOverlay.addEventListener('click', closeMobileNav);
 
-  // ── 3D Card Tilt (desktop only — pointer: fine) ──────────────────────────────
+  // â”€â”€ 3D Card Tilt (desktop only â€” pointer: fine) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   if (isFinePointer) {
@@ -319,8 +321,8 @@
         const cy     = rect.top  + rect.height / 2;
         const dx     = (e.clientX - cx) / (rect.width  / 2);
         const dy     = (e.clientY - cy) / (rect.height / 2);
-        const rotateX = -dy * 8;   // max 8° vertical
-        const rotateY =  dx * 8;   // max 8° horizontal
+        const rotateX = -dy * 8;   // max 8Â° vertical
+        const rotateY =  dx * 8;   // max 8Â° horizontal
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(6px)`;
       });
 
@@ -330,7 +332,7 @@
     });
   }
 
-  // ── Scroll Reveal for service cards ─────────────────────────────────────────
+  // â”€â”€ Scroll Reveal for service cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -344,7 +346,7 @@
     observer.observe(card);
   });
 
-  // ── 3D Modal Toggle ────────────────────────────────────────────────────────
+  // â”€â”€ 3D Modal Toggle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const openModalBtn = document.getElementById('openFormModalBtn');
   const closeModalBtn = document.getElementById('formModalClose');
   const modalOverlay = document.getElementById('formModalOverlay');
@@ -368,7 +370,7 @@
     });
   }
 
-  // ── Particles Background for Partnership Intro ─────────────────────────────
+  // â”€â”€ Particles Background for Partnership Intro â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const canvas = document.getElementById('partnershipParticles');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -425,12 +427,13 @@
     animateParticles();
   }
 
-  // ── Footer year ──────────────────────────────────────────────────────────────
+  // â”€â”€ Footer year â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const yr = document.getElementById('currentYear');
   if (yr) yr.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
 
 
 

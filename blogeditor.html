@@ -212,7 +212,7 @@
 
               <div style="display: flex; gap: 14px; margin-top: 28px;">
                 <button type="submit" class="btn btn-primary-gold shiny-btn" style="padding: 14px 28px;">
-                  <i data-lucide="send"></i> Publish Article to Blog Page
+                  <i data-lucide="send"></i> Submit Article for Admin Approval
                 </button>
                 <button type="button" class="btn" id="resetFormBtn"
                   style="background: var(--bg-cream-alt); color: var(--text-dark);">
@@ -221,11 +221,8 @@
               </div>
 
               <div id="publishSuccessMsg"
-                style="display: none; background: #DCFCE7; color: #166534; padding: 14px 20px; border-radius: var(--radius-sm); font-weight: 700; margin-top: 20px;">
-                <i data-lucide="check-circle" style="vertical-align: middle; margin-right: 6px;"></i> Article Published
-                Successfully!
-                <a href="blog.html" target="_blank" style="text-decoration: underline; margin-left: 10px;">View Live
-                  Post &rarr;</a>
+                style="display: none; background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; padding: 14px 20px; border-radius: var(--radius-sm); font-weight: 700; margin-top: 20px;">
+                <i data-lucide="clock" style="vertical-align: middle; margin-right: 6px;"></i> Article Submitted Successfully! It is now pending approval from Super Admin Vivek before going live.
               </div>
             </form>
           </div>
@@ -447,7 +444,7 @@
       const initials = author.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
 
       const newArticle = {
-        id: 'custom-' + Date.now(),
+        id: 'pending-' + Date.now(),
         title,
         category,
         date: new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }),
@@ -460,19 +457,20 @@
         bgGradient: 'linear-gradient(135deg, #0F2042 0%, #1A325D 100%)',
         excerpt,
         takeaways,
-        content
+        content,
+        status: 'pending'
       };
 
-      // Save to localStorage
-      const existing = JSON.parse(localStorage.getItem('future_edge_custom_blogs') || '[]');
+      // Save to pending localStorage
+      const existing = JSON.parse(localStorage.getItem('future_edge_pending_blogs') || '[]');
       existing.unshift(newArticle);
-      localStorage.setItem('future_edge_custom_blogs', JSON.stringify(existing));
+      localStorage.setItem('future_edge_pending_blogs', JSON.stringify(existing));
 
-      // Show Success Toast
+      // Show Pending Toast
       document.getElementById('publishSuccessMsg').style.display = 'block';
       setTimeout(() => {
         document.getElementById('publishSuccessMsg').style.display = 'none';
-      }, 6000);
+      }, 7000);
 
       renderPublishedManager();
     });
@@ -484,29 +482,38 @@
       updatePreview();
     });
 
-    // --- PUBLISHED POSTS MANAGER ---
+    // --- PENDING & APPROVED SUBMISSIONS MANAGER ---
     function renderPublishedManager() {
       const container = document.getElementById('publishedList');
-      const posts = JSON.parse(localStorage.getItem('future_edge_custom_blogs') || '[]');
+      const pending = JSON.parse(localStorage.getItem('future_edge_pending_blogs') || '[]');
+      const approved = JSON.parse(localStorage.getItem('future_edge_approved_blogs') || '[]');
+      const allSubmissions = [...pending, ...approved];
 
-      if (posts.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">No custom user articles published yet. Use the form above to add your first article!</p>';
+      if (allSubmissions.length === 0) {
+        container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">No article submissions yet. Use the form above to submit an article for admin approval.</p>';
         return;
       }
 
       container.innerHTML = '';
-      posts.forEach(post => {
+      allSubmissions.forEach(post => {
         const item = document.createElement('div');
         item.className = 'published-list-item';
+        const isApproved = post.status === 'approved' || approved.some(a => a.id === post.id);
+        const statusBadge = isApproved ? 
+          '<span class="status-pill-live">Live Approved</span>' : 
+          '<span class="status-pill-pending">Pending Approval</span>';
+
         item.innerHTML = `
           <div>
-            <span style="font-size: 0.78rem; color: #003087; font-weight: 700; text-transform: uppercase;">${post.category}</span>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span style="font-size: 0.78rem; color: #003087; font-weight: 700; text-transform: uppercase;">${post.category}</span>
+              ${statusBadge}
+            </div>
             <h4 style="font-size: 1.05rem; color: var(--text-dark); margin: 2px 0;">${post.title}</h4>
-            <span style="font-size: 0.8rem; color: var(--text-muted);">Published: ${post.date} &bull; Author: ${post.author}</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Submitted: ${post.date} &bull; Author: ${post.author}</span>
           </div>
           <div style="display: flex; gap: 10px; align-items: center;">
-            <a href="blog.html" target="_blank" class="btn" style="background: var(--gold-pale); color: var(--text-dark); padding: 6px 12px; font-size: 0.8rem;">View on Blog &rarr;</a>
-            <button class="delete-post-btn" onclick="deleteCustomPost('${post.id}')">Delete</button>
+            ${isApproved ? '<a href="blog.html" target="_blank" class="btn" style="background: var(--gold-pale); color: var(--text-dark); padding: 6px 12px; font-size: 0.8rem;">View on Blog &rarr;</a>' : '<span style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">Awaiting Vivek Approval</span>'}
           </div>
         `;
         container.appendChild(item);

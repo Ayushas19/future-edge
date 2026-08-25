@@ -19,7 +19,8 @@ export default defineConfig({
         privacy: resolve(__dirname, 'privacy-policy.html'),
         partnership: resolve(__dirname, 'partnership.html'),
         blog: resolve(__dirname, 'blog.html'),
-        blogeditor: resolve(__dirname, 'blogeditor.html')
+        blogeditor: resolve(__dirname, 'blogeditor.html'),
+        admin1: resolve(__dirname, 'admin1.html')
       }
     }
   }

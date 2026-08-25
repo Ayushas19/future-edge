@@ -566,10 +566,11 @@
       }
     ];
 
-    // Merge default articles with custom articles from LocalStorage
+    // Merge default articles with approved custom articles from LocalStorage
     function getAllArticles() {
-      const custom = JSON.parse(localStorage.getItem('future_edge_custom_blogs') || '[]');
-      return [...custom, ...articlesData];
+      const approved = JSON.parse(localStorage.getItem('future_edge_approved_blogs') || '[]');
+      const legacy = JSON.parse(localStorage.getItem('future_edge_custom_blogs') || '[]');
+      return [...approved, ...legacy, ...articlesData];
     }
 
     // Render Blog Grid Cards

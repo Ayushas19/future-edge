@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Admin Moderation Portal | Future Edge</title>
+  <meta name="description" content="Super Admin Portal for Vivek Sharma to review, approve, edit, and moderate blog posts for Future Edge." />
+  <meta name="theme-color" content="#FAF7F2" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container bar-inner">
+      <span class="bar-badge">Super Admin Moderation Portal</span>
+      <p class="bar-text">Content Review, Approval & Editorial Management Engine</p>
+      <a href="blog.html" target="_blank" class="bar-link">View Public Blog &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Site Header -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Future Edge Home">
+        <div class="logo-mark">
+          <img src="./logo.png" alt="Future Edge Logo" width="36" height="36" style="border-radius: 8px;" />
+        </div>
+        <div class="logo-text">
+          <span class="brand-title">FUTURE EDGE</span>
+          <span class="brand-subtitle">DIGITAL MARKETING</span>
+        </div>
+      </a>
+
+      <nav class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog Page</a></li>
+          <li class="nav-item"><a href="academy.html" class="nav-link">Academy</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="blog.html" target="_blank" class="btn btn-outline-gold">View Live Blog</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- SUPER ADMIN AUTHENTICATION SCREEN (Shown if not logged in) -->
+    <div class="editor-auth-wrapper" id="superAuthScreen">
+      <div class="auth-card">
+        <div class="auth-lock-icon" style="background: var(--gold-pale); border-color: var(--gold-primary);">
+          <i data-lucide="crown" style="width: 34px; height: 34px; color: #003087;"></i>
+        </div>
+        <h2>Super Admin Portal</h2>
+        <p>Log in with Super Admin Vivek credentials to review, approve, edit, or delete blog submissions.</p>
+
+        <form id="superLoginForm">
+          <div class="auth-form-group">
+            <label for="superUser">Super Admin Username</label>
+            <input type="text" id="superUser" placeholder="Enter Super Admin Username" required />
+          </div>
+
+          <div class="auth-form-group">
+            <label for="superPass">Password</label>
+            <input type="password" id="superPass" placeholder="Enter Password" required />
+          </div>
+
+          <div id="superLoginError" style="display: none; color: #DC2626; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px;">
+            <i data-lucide="alert-circle" style="vertical-align: middle; width:16px;height:16px;"></i> Invalid Super Admin Username or Password.
+          </div>
+
+          <button type="submit" class="btn btn-primary-gold shiny-btn" style="width: 100%; padding: 14px; font-size: 1rem;">
+            Unlock Super Admin Dashboard &rarr;
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- SUPER ADMIN DASHBOARD (Shown when authenticated) -->
+    <section class="editor-portal-section" id="superDashboard" style="display: none;">
+      <div class="container">
+        <!-- Top Strip -->
+        <div class="admin-header-strip">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <span class="super-admin-badge"><i data-lucide="crown" style="width:16px;height:16px;"></i> Vivek Sharma (Super Admin)</span>
+            <span style="color: var(--text-muted); font-size: 0.9rem;">Full Content Moderation Rights Enabled</span>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <a href="blog.html" target="_blank" class="btn btn-outline-gold" style="padding: 6px 16px; font-size: 0.85rem;">View Live Blog &nearr;</a>
+            <button class="btn" id="superLogoutBtn" style="background: var(--bg-cream-alt); color: var(--text-dark); border: 1px solid rgba(26,50,93,0.15); padding: 6px 16px; font-size: 0.85rem;">Logout</button>
+          </div>
+        </div>
+
+        <!-- Dashboard Navigation Tabs -->
+        <div class="category-tabs" style="justify-content: start; margin-bottom: 24px;">
+          <button class="cat-btn active" id="tabPending" onclick="switchTab('pending')">
+            <i data-lucide="clock" style="width:16px;height:16px;vertical-align:middle;"></i> Pending Approvals (<span id="pendingCount">0</span>)
+          </button>
+          <button class="cat-btn" id="tabApproved" onclick="switchTab('approved')">
+            <i data-lucide="check-circle" style="width:16px;height:16px;vertical-align:middle;"></i> Live Approved Articles (<span id="approvedCount">0</span>)
+          </button>
+        </div>
+
+        <!-- Pending Submissions Container -->
+        <div class="published-manager-card" id="pendingSection">
+          <h3 style="color: var(--text-dark); font-size: 1.3rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <i data-lucide="inbox" style="color: var(--gold-amber);"></i> Articles Waiting for Vivek's Approval
+          </h3>
+          <div id="pendingContainer">
+            <!-- Render pending items -->
+          </div>
+        </div>
+
+        <!-- Live Approved Submissions Container -->
+        <div class="published-manager-card" id="approvedSection" style="display: none;">
+          <h3 style="color: var(--text-dark); font-size: 1.3rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <i data-lucide="globe" style="color: #003087;"></i> Live Approved Custom Articles
+          </h3>
+          <div id="approvedContainer">
+            <!-- Render approved items -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- EDIT ARTICLE MODAL -->
+  <div class="article-modal-backdrop" id="editModalBackdrop" aria-hidden="true">
+    <div class="article-modal-container" style="max-width: 780px;">
+      <div class="modal-header-sticky">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <i data-lucide="edit-3" style="color: var(--gold-amber);"></i>
+          <span style="font-weight: 700; color: var(--text-dark); font-size: 1.1rem;">Super Admin Edit Article</span>
+        </div>
+        <button class="modal-close-btn" id="closeEditModalBtn"><i data-lucide="x"></i></button>
+      </div>
+
+      <div style="padding: 32px 36px;">
+        <form id="editArticleForm">
+          <input type="hidden" id="editPostId" />
+
+          <div class="editor-field">
+            <label for="editTitle">Article Title</label>
+            <input type="text" id="editTitle" required />
+          </div>
+
+          <div class="form-row-2">
+            <div class="editor-field">
+              <label for="editCategory">Category</label>
+              <select id="editCategory" required>
+                <option value="AI & SEO">AI & SEO</option>
+                <option value="Performance Marketing">Performance Marketing</option>
+                <option value="E-Commerce">E-Commerce</option>
+                <option value="Academy & Career">Academy & Career</option>
+                <option value="Local Business">Local Business</option>
+                <option value="Branding & Content">Branding & Content</option>
+              </select>
+            </div>
+
+            <div class="editor-field">
+              <label for="editReadTime">Read Time</label>
+              <input type="text" id="editReadTime" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="editor-field">
+              <label for="editAuthor">Author Name</label>
+              <input type="text" id="editAuthor" required />
+            </div>
+
+            <div class="editor-field">
+              <label for="editRole">Author Role</label>
+              <input type="text" id="editRole" />
+            </div>
+          </div>
+
+          <div class="editor-field">
+            <label>Cover Image URL</label>
+            <input type="text" id="editCoverImage" />
+          </div>
+
+          <div class="editor-field">
+            <label>Video Embed URL</label>
+            <input type="text" id="editVideoUrl" />
+          </div>
+
+          <div class="editor-field">
+            <label>Excerpt / Summary</label>
+            <textarea id="editExcerpt" rows="3" required></textarea>
+          </div>
+
+          <div class="editor-field">
+            <label>Key Takeaways (One per line)</label>
+            <textarea id="editTakeaways" rows="3"></textarea>
+          </div>
+
+          <div class="editor-field">
+            <label>Full Article Body HTML</label>
+            <textarea id="editContent" rows="8" required></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+            <button type="button" class="btn" id="cancelEditBtn" style="background: var(--bg-cream-alt); color: var(--text-dark);">Cancel</button>
+            <button type="submit" class="btn btn-primary-gold shiny-btn">Save Changes & Approve Article &rarr;</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; <span id="currentYear">2026</span> Future Edge Digital Marketing. All rights reserved.</p>
+      <p class="cachebugs-credit">Crafted by <a href="https://cachebugs.site/" target="_blank" rel="noopener">Cachebugs</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // SUPER ADMIN CREDENTIALS
+    const SUPER_USER = 'vivekFE';
+    const SUPER_PASS = 'vivek87654321';
+
+    function checkSuperAuth() {
+      const isAuth = sessionStorage.getItem('future_edge_super_admin_auth') === 'true';
+      const authScreen = document.getElementById('superAuthScreen');
+      const dashboard = document.getElementById('superDashboard');
+
+      if (isAuth) {
+        authScreen.style.display = 'none';
+        dashboard.style.display = 'block';
+        renderSuperLists();
+      } else {
+        authScreen.style.display = 'flex';
+        dashboard.style.display = 'none';
+      }
+    }
+
+    document.getElementById('superLoginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const u = document.getElementById('superUser').value.trim();
+      const p = document.getElementById('superPass').value.trim();
+      const err = document.getElementById('superLoginError');
+
+      if (u === SUPER_USER && p === SUPER_PASS) {
+        err.style.display = 'none';
+        sessionStorage.setItem('future_edge_super_admin_auth', 'true');
+        checkSuperAuth();
+      } else {
+        err.style.display = 'block';
+      }
+    });
+
+    document.getElementById('superLogoutBtn').addEventListener('click', () => {
+      sessionStorage.removeItem('future_edge_super_admin_auth');
+      checkSuperAuth();
+    });
+
+    // Tab Switching
+    function switchTab(tab) {
+      const pendingSec = document.getElementById('pendingSection');
+      const approvedSec = document.getElementById('approvedSection');
+      const tabPend = document.getElementById('tabPending');
+      const tabAppr = document.getElementById('tabApproved');
+
+      if (tab === 'pending') {
+        pendingSec.style.display = 'block';
+        approvedSec.style.display = 'none';
+        tabPend.classList.add('active');
+        tabAppr.classList.remove('active');
+      } else {
+        pendingSec.style.display = 'none';
+        approvedSec.style.display = 'block';
+        tabAppr.classList.add('active');
+        tabPend.classList.remove('active');
+      }
+    }
+
+    // Render Lists
+    function renderSuperLists() {
+      const pending = JSON.parse(localStorage.getItem('future_edge_pending_blogs') || '[]');
+      const approved = JSON.parse(localStorage.getItem('future_edge_approved_blogs') || '[]');
+
+      document.getElementById('pendingCount').textContent = pending.length;
+      document.getElementById('approvedCount').textContent = approved.length;
+
+      // Render Pending
+      const pendingContainer = document.getElementById('pendingContainer');
+      if (pending.length === 0) {
+        pendingContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">No pending articles waiting for approval.</p>';
+      } else {
+        pendingContainer.innerHTML = '';
+        pending.forEach(post => {
+          const item = document.createElement('div');
+          item.className = 'published-list-item';
+          item.innerHTML = `
+            <div style="flex: 1; padding-right: 20px;">
+              <span class="status-pill-pending">Pending Approval</span>
+              <h4 style="font-size: 1.08rem; color: var(--text-dark); margin: 4px 0;">${post.title}</h4>
+              <span style="font-size: 0.82rem; color: var(--text-muted);">Author: <strong>${post.author}</strong> (${post.authorRole || 'Contributor'}) &bull; Category: ${post.category} &bull; ${post.date}</span>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 6px;">${post.excerpt}</p>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+              <button class="approve-btn" onclick="approveArticle('${post.id}')"><i data-lucide="check"></i> Approve & Publish</button>
+              <button class="edit-btn" onclick="openEditModal('${post.id}', 'pending')"><i data-lucide="edit-2"></i> Edit</button>
+              <button class="decline-btn" onclick="declineArticle('${post.id}')"><i data-lucide="x"></i> Decline</button>
+            </div>
+          `;
+          pendingContainer.appendChild(item);
+        });
+      }
+
+      // Render Approved
+      const approvedContainer = document.getElementById('approvedContainer');
+      if (approved.length === 0) {
+        approvedContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">No live approved custom articles yet.</p>';
+      } else {
+        approvedContainer.innerHTML = '';
+        approved.forEach(post => {
+          const item = document.createElement('div');
+          item.className = 'published-list-item';
+          item.innerHTML = `
+            <div style="flex: 1; padding-right: 20px;">
+              <span class="status-pill-live">Live Approved</span>
+              <h4 style="font-size: 1.08rem; color: var(--text-dark); margin: 4px 0;">${post.title}</h4>
+              <span style="font-size: 0.82rem; color: var(--text-muted);">Author: <strong>${post.author}</strong> &bull; Category: ${post.category} &bull; Published: ${post.date}</span>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <a href="blog.html" target="_blank" class="btn" style="background: var(--gold-pale); color: var(--text-dark); padding: 6px 12px; font-size: 0.8rem;">View Live &nearr;</a>
+              <button class="edit-btn" onclick="openEditModal('${post.id}', 'approved')">Edit</button>
+              <button class="decline-btn" onclick="deleteApprovedArticle('${post.id}')">Delete</button>
+            </div>
+          `;
+          approvedContainer.appendChild(item);
+        });
+      }
+
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    // Approve Handler
+    function approveArticle(id) {
+      let pending = JSON.parse(localStorage.getItem('future_edge_pending_blogs') || '[]');
+      let approved = JSON.parse(localStorage.getItem('future_edge_approved_blogs') || '[]');
+
+      const postIndex = pending.findIndex(p => p.id === id);
+      if (postIndex !== -1) {
+        const post = pending[postIndex];
+        post.status = 'approved';
+        approved.unshift(post);
+        pending.splice(postIndex, 1);
+
+        localStorage.setItem('future_edge_pending_blogs', JSON.stringify(pending));
+        localStorage.setItem('future_edge_approved_blogs', JSON.stringify(approved));
+
+        alert(`Article "${post.title}" has been approved and is now live on the blog page!`);
+        renderSuperLists();
+      }
+    }
+
+    // Decline Handler
+    function declineArticle(id) {
+      if (confirm('Decline and delete this pending submission?')) {
+        let pending = JSON.parse(localStorage.getItem('future_edge_pending_blogs') || '[]');
+        pending = pending.filter(p => p.id !== id);
+        localStorage.setItem('future_edge_pending_blogs', JSON.stringify(pending));
+        renderSuperLists();
+      }
+    }
+
+    // Delete Approved Handler
+    function deleteApprovedArticle(id) {
+      if (confirm('Permanently delete this live article from the blog?')) {
+        let approved = JSON.parse(localStorage.getItem('future_edge_approved_blogs') || '[]');
+        approved = approved.filter(p => p.id !== id);
+        localStorage.setItem('future_edge_approved_blogs', JSON.stringify(approved));
+        renderSuperLists();
+      }
+    }
+
+    // Modal Edit Functions
+    let currentEditType = 'pending';
+
+    function openEditModal(id, type) {
+      currentEditType = type;
+      const list = type === 'pending' ? 
+        JSON.parse(localStorage.getItem('future_edge_pending_blogs') || '[]') : 
+        JSON.parse(localStorage.getItem('future_edge_approved_blogs') || '[]');
+
+      const post = list.find(p => p.id === id);
+      if (!post) return;
+
+      document.getElementById('editPostId').value = post.id;
+      document.getElementById('editTitle').value = post.title;
+      document.getElementById('editCategory').value = post.category;
+      document.getElementById('editReadTime').value = post.readTime;
+      document.getElementById('editAuthor').value = post.author;
+      document.getElementById('editRole').value = post.authorRole || '';
+      document.getElementById('editCoverImage').value = post.coverImage || '';
+      document.getElementById('editVideoUrl').value = post.videoUrl || '';
+      document.getElementById('editExcerpt').value = post.excerpt || '';
+      document.getElementById('editTakeaways').value = post.takeaways ? post.takeaways.join('\n') : '';
+      document.getElementById('editContent').value = post.content || '';
+
+      const modal = document.getElementById('editModalBackdrop');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEditModal() {
+      const modal = document.getElementById('editModalBackdrop');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('closeEditModalBtn').addEventListener('click', closeEditModal);
+    document.getElementById('cancelEditBtn').addEventListener('click', closeEditModal);
+
+    document.getElementById('editArticleForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('editPostId').value;
+      let pending = JSON.parse(localStorage.getItem('future_edge_pending_blogs') || '[]');
+      let approved = JSON.parse(localStorage.getItem('future_edge_approved_blogs') || '[]');
+
+      let post = pending.find(p => p.id === id) || approved.find(p => p.id === id);
+      if (!post) return;
+
+      post.title = document.getElementById('editTitle').value.trim();
+      post.category = document.getElementById('editCategory').value;
+      post.readTime = document.getElementById('editReadTime').value.trim();
+      post.author = document.getElementById('editAuthor').value.trim();
+      post.authorRole = document.getElementById('editRole').value.trim();
+      post.coverImage = document.getElementById('editCoverImage').value.trim();
+      post.videoUrl = document.getElementById('editVideoUrl').value.trim();
+      post.excerpt = document.getElementById('editExcerpt').value.trim();
+      post.content = document.getElementById('editContent').value.trim();
+
+      const takewaysRaw = document.getElementById('editTakeaways').value.trim();
+      post.takeaways = takewaysRaw ? takewaysRaw.split('\n').filter(t => t.trim() !== '') : [];
+
+      // If it was pending, approve it now
+      if (currentEditType === 'pending') {
+        post.status = 'approved';
+        pending = pending.filter(p => p.id !== id);
+        approved.unshift(post);
+        localStorage.setItem('future_edge_pending_blogs', JSON.stringify(pending));
+        localStorage.setItem('future_edge_approved_blogs', JSON.stringify(approved));
+        alert('Article updated and approved live!');
+      } else {
+        localStorage.setItem('future_edge_approved_blogs', JSON.stringify(approved));
+        alert('Live article updated successfully!');
+      }
+
+      closeEditModal();
+      renderSuperLists();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkSuperAuth();
+    });
+  </script>
+</body>
+
+</html>

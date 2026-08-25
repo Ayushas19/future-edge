@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog Publishing Studio & Admin Portal | Future Edge</title>
-  <meta name="description" content="Authorized admin studio for creating, formatting, and publishing blog articles for Future Edge Digital Marketing." />
+  <meta name="description"
+    content="Authorized admin studio for creating, formatting, and publishing blog articles for Future Edge Digital Marketing." />
   <meta name="theme-color" content="#FAF7F2" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,26 +74,30 @@
         <form id="loginForm">
           <div class="auth-form-group">
             <label for="adminUser">Username</label>
-            <input type="text" id="adminUser" placeholder="Enter username (e.g. future-edge)" required />
+            <input type="text" id="adminUser" required />
           </div>
 
           <div class="auth-form-group">
             <label for="adminPass">Password</label>
-            <input type="password" id="adminPass" placeholder="Enter password (e.g. FTRedge0912)" required />
+            <input type="password" id="adminPass" required />
           </div>
 
-          <div id="loginError" style="display: none; color: #DC2626; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px;">
-            <i data-lucide="alert-circle" style="vertical-align: middle; width:16px;height:16px;"></i> Invalid username or password. Please try again.
+          <div id="loginError"
+            style="display: none; color: #DC2626; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px;">
+            <i data-lucide="alert-circle" style="vertical-align: middle; width:16px;height:16px;"></i> Invalid username
+            or password. Please try again.
           </div>
 
-          <button type="submit" class="btn btn-primary-gold shiny-btn" style="width: 100%; padding: 14px; font-size: 1rem;">
+          <button type="submit" class="btn btn-primary-gold shiny-btn"
+            style="width: 100%; padding: 14px; font-size: 1rem;">
             Unlock Publishing Studio &rarr;
           </button>
         </form>
 
         <div class="auth-cred-hint">
           <strong>Portal Admin Credentials:</strong><br />
-          Username: <code style="color: var(--text-dark); font-weight: 700;">future-edge</code> &nbsp;|&nbsp; Password: <code style="color: var(--text-dark); font-weight: 700;">FTRedge0912</code>
+          Username: <code style="color: var(--text-dark); font-weight: 700;">future-edge</code> &nbsp;|&nbsp; Password:
+          <code style="color: var(--text-dark); font-weight: 700;">FTRedge0912</code>
         </div>
       </div>
     </div>
@@ -103,12 +108,16 @@
         <!-- Top Admin Header Strip -->
         <div class="admin-header-strip">
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span class="admin-badge"><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Authenticated Admin</span>
-            <span style="color: var(--text-muted); font-size: 0.9rem;">Logged in as <strong>Vivek Sharma (Admin)</strong></span>
+            <span class="admin-badge"><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Authenticated
+              Admin</span>
+            <span style="color: var(--text-muted); font-size: 0.9rem;">Logged in as <strong>Vivek Sharma
+                (Admin)</strong></span>
           </div>
           <div style="display: flex; gap: 10px;">
-            <a href="blog.html" target="_blank" class="btn btn-outline-gold" style="padding: 6px 16px; font-size: 0.85rem;">View Live Blog &nearr;</a>
-            <button class="btn" id="logoutBtn" style="background: var(--bg-cream-alt); color: var(--text-dark); border: 1px solid rgba(26,50,93,0.15); padding: 6px 16px; font-size: 0.85rem;">Logout</button>
+            <a href="blog.html" target="_blank" class="btn btn-outline-gold"
+              style="padding: 6px 16px; font-size: 0.85rem;">View Live Blog &nearr;</a>
+            <button class="btn" id="logoutBtn"
+              style="background: var(--bg-cream-alt); color: var(--text-dark); border: 1px solid rgba(26,50,93,0.15); padding: 6px 16px; font-size: 0.85rem;">Logout</button>
           </div>
         </div>
 
@@ -120,7 +129,8 @@
             <form id="createArticleForm">
               <div class="editor-field">
                 <label for="postTitle">Article Title *</label>
-                <input type="text" id="postTitle" placeholder="e.g. 10 Proven Marketing Strategies for Uttar Pradesh Businesses in 2026" required />
+                <input type="text" id="postTitle"
+                  placeholder="e.g. 10 Proven Marketing Strategies for Uttar Pradesh Businesses in 2026" required />
               </div>
 
               <div class="form-row-2">
@@ -145,18 +155,21 @@
               <div class="form-row-2">
                 <div class="editor-field">
                   <label for="postAuthorName">Author Name *</label>
-                  <input type="text" id="postAuthorName" placeholder="e.g. Vivek Sharma" value="Vivek Sharma" required />
+                  <input type="text" id="postAuthorName" placeholder="e.g. Vivek Sharma" value="Vivek Sharma"
+                    required />
                 </div>
 
                 <div class="editor-field">
                   <label for="postAuthorRole">Author Title / Role</label>
-                  <input type="text" id="postAuthorRole" placeholder="e.g. Digital Growth Lead" value="Founder & Growth Strategist" />
+                  <input type="text" id="postAuthorRole" placeholder="e.g. Digital Growth Lead"
+                    value="Founder & Growth Strategist" />
                 </div>
               </div>
 
               <!-- Media Attachment: Image -->
               <div class="editor-field">
-                <label><i data-lucide="image" style="width: 16px; height: 16px; vertical-align: middle;"></i> Article Cover Image (Upload or URL)</label>
+                <label><i data-lucide="image" style="width: 16px; height: 16px; vertical-align: middle;"></i> Article
+                  Cover Image (Upload or URL)</label>
                 <div class="media-input-tabs">
                   <button type="button" class="media-tab-btn active" id="tabImgUrl">Image URL</button>
                   <button type="button" class="media-tab-btn" id="tabImgFile">Upload Image File</button>
@@ -173,40 +186,52 @@
 
               <!-- Media Attachment: Video -->
               <div class="editor-field">
-                <label><i data-lucide="video" style="width: 16px; height: 16px; vertical-align: middle;"></i> Video Embed (YouTube / Vimeo / MP4 URL)</label>
-                <input type="text" id="postVideoUrl" placeholder="e.g. https://www.youtube.com/embed/dQw4w9WgXcQ or https://example.com/video.mp4" />
-                <span style="font-size: 0.78rem; color: var(--text-muted);">Paste YouTube Embed URL or direct video link to render an interactive video player inside the article.</span>
+                <label><i data-lucide="video" style="width: 16px; height: 16px; vertical-align: middle;"></i> Video
+                  Embed (YouTube / Vimeo / MP4 URL)</label>
+                <input type="text" id="postVideoUrl"
+                  placeholder="e.g. https://www.youtube.com/embed/dQw4w9WgXcQ or https://example.com/video.mp4" />
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Paste YouTube Embed URL or direct video link
+                  to render an interactive video player inside the article.</span>
               </div>
 
               <div class="editor-field">
                 <label for="postExcerpt">Short Excerpt / Summary *</label>
-                <textarea id="postExcerpt" rows="3" placeholder="Brief summary of the article that appears on the card preview..." required></textarea>
+                <textarea id="postExcerpt" rows="3"
+                  placeholder="Brief summary of the article that appears on the card preview..." required></textarea>
               </div>
 
               <!-- Key Takeaways -->
               <div class="editor-field">
-                <label><i data-lucide="zap" style="width:16px;height:16px;color:var(--gold-amber);"></i> Key Takeaways (One per line)</label>
-                <textarea id="postTakeaways" rows="3" placeholder="Bullet 1: Strategic insight&#10;Bullet 2: Actionable tip&#10;Bullet 3: Measurable outcome"></textarea>
+                <label><i data-lucide="zap" style="width:16px;height:16px;color:var(--gold-amber);"></i> Key Takeaways
+                  (One per line)</label>
+                <textarea id="postTakeaways" rows="3"
+                  placeholder="Bullet 1: Strategic insight&#10;Bullet 2: Actionable tip&#10;Bullet 3: Measurable outcome"></textarea>
               </div>
 
               <!-- Main Article Content Body -->
               <div class="editor-field">
                 <label for="postContent">Full Article Content (HTML / Formatted Text) *</label>
-                <textarea id="postContent" rows="10" placeholder="Write full article body. Use <h3>Headings</h3>, <p>Paragraphs</p>, and <ul><li>Bullets</li></ul> for rich formatting..." required></textarea>
+                <textarea id="postContent" rows="10"
+                  placeholder="Write full article body. Use <h3>Headings</h3>, <p>Paragraphs</p>, and <ul><li>Bullets</li></ul> for rich formatting..."
+                  required></textarea>
               </div>
 
               <div style="display: flex; gap: 14px; margin-top: 28px;">
                 <button type="submit" class="btn btn-primary-gold shiny-btn" style="padding: 14px 28px;">
                   <i data-lucide="send"></i> Publish Article to Blog Page
                 </button>
-                <button type="button" class="btn" id="resetFormBtn" style="background: var(--bg-cream-alt); color: var(--text-dark);">
+                <button type="button" class="btn" id="resetFormBtn"
+                  style="background: var(--bg-cream-alt); color: var(--text-dark);">
                   Clear Form
                 </button>
               </div>
 
-              <div id="publishSuccessMsg" style="display: none; background: #DCFCE7; color: #166534; padding: 14px 20px; border-radius: var(--radius-sm); font-weight: 700; margin-top: 20px;">
-                <i data-lucide="check-circle" style="vertical-align: middle; margin-right: 6px;"></i> Article Published Successfully!
-                <a href="blog.html" target="_blank" style="text-decoration: underline; margin-left: 10px;">View Live Post &rarr;</a>
+              <div id="publishSuccessMsg"
+                style="display: none; background: #DCFCE7; color: #166534; padding: 14px 20px; border-radius: var(--radius-sm); font-weight: 700; margin-top: 20px;">
+                <i data-lucide="check-circle" style="vertical-align: middle; margin-right: 6px;"></i> Article Published
+                Successfully!
+                <a href="blog.html" target="_blank" style="text-decoration: underline; margin-left: 10px;">View Live
+                  Post &rarr;</a>
               </div>
             </form>
           </div>
@@ -217,16 +242,22 @@
               <h3><i data-lucide="eye" style="color: #003087;"></i> Live Post Card Preview</h3>
 
               <div class="blog-card" style="margin-top: 16px;">
-                <div class="blog-card-img" id="prevImgBox" style="background: linear-gradient(135deg, #0F2042 0%, #1A325D 100%); display: flex; align-items: flex-end; padding: 16px;">
-                  <span class="cat-tag" id="prevCategory" style="background: rgba(255,255,255,0.9); padding: 4px 10px; border-radius: var(--radius-full); z-index: 2;">AI & SEO</span>
+                <div class="blog-card-img" id="prevImgBox"
+                  style="background: linear-gradient(135deg, #0F2042 0%, #1A325D 100%); display: flex; align-items: flex-end; padding: 16px;">
+                  <span class="cat-tag" id="prevCategory"
+                    style="background: rgba(255,255,255,0.9); padding: 4px 10px; border-radius: var(--radius-full); z-index: 2;">AI
+                    & SEO</span>
                 </div>
                 <div class="blog-card-body">
-                  <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px;" id="prevMeta">Just Now &bull; 5 min read</div>
+                  <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px;" id="prevMeta">Just Now
+                    &bull; 5 min read</div>
                   <h3 class="blog-card-title" id="prevTitle">Article Title Preview Will Appear Here...</h3>
-                  <p class="blog-card-excerpt" id="prevExcerpt">Your article short summary and excerpt will preview right here as you type.</p>
+                  <p class="blog-card-excerpt" id="prevExcerpt">Your article short summary and excerpt will preview
+                    right here as you type.</p>
                   <div class="blog-card-footer">
                     <div class="author-info">
-                      <div class="author-avatar" id="prevAvatar" style="width: 32px; height: 32px; font-size: 0.8rem;">VS</div>
+                      <div class="author-avatar" id="prevAvatar" style="width: 32px; height: 32px; font-size: 0.8rem;">
+                        VS</div>
                       <span class="author-name" id="prevAuthor" style="font-size: 0.85rem;">Vivek Sharma</span>
                     </div>
                     <span class="read-article-btn">Read Article &rarr;</span>
@@ -237,7 +268,8 @@
               <!-- Media Preview Box -->
               <div style="margin-top: 28px;">
                 <h4 style="font-size: 0.95rem; color: var(--text-dark); margin-bottom: 8px;">Attached Video Preview</h4>
-                <div id="videoPreviewArea" style="background: var(--bg-cream-alt); border-radius: var(--radius-md); padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.88rem;">
+                <div id="videoPreviewArea"
+                  style="background: var(--bg-cream-alt); border-radius: var(--radius-md); padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.88rem;">
                   No video attached yet. Enter a YouTube or MP4 URL above to preview player.
                 </div>
               </div>
@@ -247,7 +279,8 @@
 
         <!-- Published Articles Manager -->
         <div class="published-manager-card">
-          <h3 style="color: var(--text-dark); font-size: 1.3rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+          <h3
+            style="color: var(--text-dark); font-size: 1.3rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
             <i data-lucide="layers" style="color: var(--gold-amber);"></i> Manage User-Published Articles
           </h3>
           <div id="publishedList">
@@ -262,7 +295,8 @@
   <footer class="site-footer">
     <div class="container footer-bottom">
       <p>&copy; <span id="currentYear">2026</span> Future Edge Digital Marketing. All rights reserved.</p>
-      <p class="cachebugs-credit">Crafted by <a href="https://cachebugs.site/" target="_blank" rel="noopener">Cachebugs</a></p>
+      <p class="cachebugs-credit">Crafted by <a href="https://cachebugs.site/" target="_blank"
+          rel="noopener">Cachebugs</a></p>
     </div>
   </footer>
 
@@ -333,7 +367,7 @@
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = function(evt) {
+        reader.onload = function (evt) {
           currentImgData = evt.target.result;
           updatePreview();
         };

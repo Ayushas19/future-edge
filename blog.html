@@ -566,11 +566,18 @@
       }
     ];
 
-    // Merge default articles with approved custom articles from LocalStorage
+    // Merge default articles (filtered for deleted ones) with approved custom articles
     function getAllArticles() {
       const approved = JSON.parse(localStorage.getItem('future_edge_approved_blogs') || '[]');
       const legacy = JSON.parse(localStorage.getItem('future_edge_custom_blogs') || '[]');
-      return [...approved, ...legacy, ...articlesData];
+      const deletedDefaultIds = JSON.parse(localStorage.getItem('future_edge_deleted_default_ids') || '[]');
+      const editedDefaults = JSON.parse(localStorage.getItem('future_edge_edited_default_blogs') || '{}');
+
+      const activeDefaults = articlesData
+        .filter(art => !deletedDefaultIds.includes(art.id))
+        .map(art => editedDefaults[art.id] || art);
+
+      return [...approved, ...legacy, ...activeDefaults];
     }
 
     // Render Blog Grid Cards

@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Super Admin Moderation Portal | Future Edge</title>
-  <meta name="description" content="Super Admin Portal for Vivek Sharma to review, approve, edit, and moderate blog posts for Future Edge." />
+  <title>Admin Moderation Portal | Future Edge</title>
+  <meta name="description" content="Admin Portal for Vivek Sharma to review, approve, edit, and moderate blog posts for Future Edge." />
   <meta name="theme-color" content="#FAF7F2" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
     <div class="container bar-inner">
-      <span class="bar-badge">Super Admin Moderation Portal</span>
+      <span class="bar-badge">Admin Moderation Portal</span>
       <p class="bar-text">Content Review, Approval & Editorial Management Engine</p>
       <a href="blog.html" target="_blank" class="bar-link">View Public Blog &rarr;</a>
     </div>
@@ -32,7 +32,7 @@
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Future Edge Home">
         <div class="logo-mark">
-          <img src="./logo.png" alt="Future Edge Logo" width="36" height="36" style="border-radius: 8px;" />
+          <img src="/logo.png" alt="Future Edge Logo" width="36" height="36" style="border-radius: 8px;" />
         </div>
         <div class="logo-text">
           <span class="brand-title">FUTURE EDGE</span>
@@ -57,19 +57,19 @@
   </header>
 
   <main id="main-content">
-    <!-- SUPER ADMIN AUTHENTICATION SCREEN (Shown if not logged in) -->
+    <!-- ADMIN AUTHENTICATION SCREEN (Shown if not logged in) -->
     <div class="editor-auth-wrapper" id="superAuthScreen">
       <div class="auth-card">
         <div class="auth-lock-icon" style="background: var(--gold-pale); border-color: var(--gold-primary);">
-          <i data-lucide="crown" style="width: 34px; height: 34px; color: #003087;"></i>
+          <i data-lucide="shield-check" style="width: 34px; height: 34px; color: #003087;"></i>
         </div>
-        <h2>Super Admin Portal</h2>
-        <p>Log in with Super Admin Vivek credentials to review, approve, edit, or delete blog submissions.</p>
+        <h2>Admin Portal</h2>
+        <p>Log in with Admin Vivek credentials to review, approve, edit, or delete blog submissions.</p>
 
         <form id="superLoginForm">
           <div class="auth-form-group">
-            <label for="superUser">Super Admin Username</label>
-            <input type="text" id="superUser" placeholder="Enter Super Admin Username" required />
+            <label for="superUser">Admin Username</label>
+            <input type="text" id="superUser" placeholder="Enter Admin Username" required />
           </div>
 
           <div class="auth-form-group">
@@ -78,23 +78,23 @@
           </div>
 
           <div id="superLoginError" style="display: none; color: #DC2626; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px;">
-            <i data-lucide="alert-circle" style="vertical-align: middle; width:16px;height:16px;"></i> Invalid Super Admin Username or Password.
+            <i data-lucide="alert-circle" style="vertical-align: middle; width:16px;height:16px;"></i> Invalid Admin Username or Password.
           </div>
 
           <button type="submit" class="btn btn-primary-gold shiny-btn" style="width: 100%; padding: 14px; font-size: 1rem;">
-            Unlock Super Admin Dashboard &rarr;
+            Unlock Admin Dashboard &rarr;
           </button>
         </form>
       </div>
     </div>
 
-    <!-- SUPER ADMIN DASHBOARD (Shown when authenticated) -->
+    <!-- ADMIN DASHBOARD (Shown when authenticated) -->
     <section class="editor-portal-section" id="superDashboard" style="display: none;">
       <div class="container">
         <!-- Top Strip -->
         <div class="admin-header-strip">
           <div style="display: flex; align-items: center; gap: 14px;">
-            <span class="super-admin-badge"><i data-lucide="crown" style="width:16px;height:16px;"></i> Vivek Sharma (Super Admin)</span>
+            <span class="super-admin-badge"><i data-lucide="shield-check" style="width:16px;height:16px;"></i> Vivek Sharma (Admin)</span>
             <span style="color: var(--text-muted); font-size: 0.9rem;">Full Content Moderation Rights Enabled</span>
           </div>
           <div style="display: flex; gap: 10px;">

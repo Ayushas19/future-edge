@@ -67,12 +67,6 @@ export function initUI() {
     const windowHeight = window.innerHeight;
     const totalScrollable = heroHeight - windowHeight;
 
-    if (window.innerWidth <= 768) {
-      if (heroMessages[0]) heroMessages[0].classList.add('active');
-      heroWidgets.forEach(w => w.classList.add('active'));
-      return;
-    }
-
     if (totalScrollable <= 0) return;
 
     // Calculate scroll progress from 0.0 to 1.0

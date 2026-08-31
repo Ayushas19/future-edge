@@ -151,22 +151,31 @@ export function initHero3D() {
 
   // Initial Tree Scale & Position
   function updateTreeLayout() {
-    if (window.innerWidth <= 992) {
-      treeGroup.position.set(0, -2.5, 0); // Center on mobile, slightly lower
+    if (window.innerWidth <= 768) {
+      treeGroup.position.set(0, -1.2, 0);
+    } else if (window.innerWidth <= 992) {
+      treeGroup.position.set(0, -2.2, 0);
     } else {
-      treeGroup.position.set(3.2, -2, 0); // Right side on desktop
+      treeGroup.position.set(3.2, -2, 0);
     }
   }
   updateTreeLayout();
   treeGroup.scale.set(0.55, 0.55, 0.55);
 
-  // Mouse Parallax Interaction
+  // Mouse & Touch Parallax Interaction
   let mouseX = 0;
   let mouseY = 0;
   window.addEventListener('mousemove', (e) => {
     mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
     mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
   });
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      mouseX = (e.touches[0].clientX / window.innerWidth - 0.5) * 2;
+      mouseY = (e.touches[0].clientY / window.innerHeight - 0.5) * 2;
+    }
+  }, { passive: true });
 
   // Animation Loop
   const clock = new THREE.Clock();

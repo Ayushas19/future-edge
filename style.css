@@ -4383,86 +4383,84 @@ textarea {
 /* Media Query: Hero 3D Sequence & Mobile Layout Overrides (max-width: 768px) */
 @media screen and (max-width: 768px) {
   .hero-sequence {
-    height: auto !important;
+    height: 320vh !important; /* Enable sticky multi-screen scroll sequence on mobile */
     min-height: auto !important;
-    padding: 40px 0 60px !important;
-    background: radial-gradient(circle at 50% 20%, #FFFDF9 0%, var(--bg-cream) 100%) !important;
+    background: radial-gradient(circle at 50% 30%, #FFFDF9 0%, var(--bg-cream) 100%) !important;
   }
 
   .hero-sticky {
-    position: relative !important;
-    height: auto !important;
-    top: auto !important;
-    display: block !important;
-    overflow: visible !important;
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
   }
 
   #heroCanvas {
-    opacity: 0.22 !important;
+    position: absolute !important;
+    inset: 0 !important;
+    opacity: 0.88 !important;
     pointer-events: none !important;
     height: 100% !important;
+    width: 100% !important;
+    z-index: 1 !important;
   }
 
   .hero-content-wrapper {
     margin-top: 0 !important;
     position: relative !important;
     z-index: 10 !important;
+    width: 100% !important;
+    padding: 0 16px !important;
   }
 
   .hero-copy-slides {
     max-width: 100% !important;
-    min-height: auto !important;
+    min-height: 280px !important;
     position: relative !important;
   }
 
   .hero-message {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    filter: none !important;
-    pointer-events: all !important;
-    margin-bottom: 24px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -45%) scale(0.95) !important;
+    width: calc(100% - 24px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    pointer-events: none !important;
+    background: rgba(255, 255, 255, 0.90) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 0 16px 40px rgba(26, 50, 93, 0.12) !important;
+    text-align: center !important;
   }
 
-  .hero-message:not(:first-child) {
-    display: none !important;
+  .hero-message.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    pointer-events: all !important;
   }
 
   .hero-widgets-container {
-    position: relative !important;
-    inset: auto !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-    margin-top: 28px !important;
-    pointer-events: auto !important;
-  }
-
-  .hero-widget {
-    position: relative !important;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
-    opacity: 1 !important;
-    transform: none !important;
-    width: 100% !important;
-    padding: 12px 14px !important;
+    display: none !important;
   }
 
   .hero-scroll-progress-bar {
-    display: none !important;
+    display: block !important;
+    bottom: 16px !important;
   }
 }
 
 @media screen and (max-width: 576px) {
-  .hero-widgets-container {
-    grid-template-columns: 1fr !important;
-  }
-
   .hero-cta-group {
     flex-direction: column !important;
     width: 100% !important;

@@ -4411,56 +4411,73 @@ textarea {
 
   .hero-content-wrapper {
     position: absolute !important;
-    top: 60% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    inset: 0 !important;
     margin: 0 !important;
     z-index: 10 !important;
     width: 100% !important;
+    height: 100% !important;
     padding: 0 16px !important;
     pointer-events: none !important;
   }
 
   .hero-copy-slides {
     max-width: 100% !important;
-    min-height: 200px !important;
+    height: 100% !important;
     position: relative !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
   }
 
+  /* Base styling for all mobile hero popups */
   .hero-message {
     position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -42%) scale(0.95) !important;
     width: calc(100% - 20px) !important;
     max-width: 440px !important;
     opacity: 0 !important;
     visibility: hidden !important;
     transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
     pointer-events: none !important;
-    background: rgba(255, 255, 255, 0.22) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    padding: 16px 16px !important;
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    padding: 18px 16px !important;
     border-radius: 18px !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     text-align: center !important;
   }
 
-  .hero-message:not(.active) {
-    display: none !important;
+  /* First popup when web opens: Center of screen */
+  .hero-message:first-child {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -45%) scale(0.95) !important;
   }
 
-  .hero-message.active {
+  .hero-message:first-child.active {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
     transform: translate(-50%, -50%) scale(1) !important;
     pointer-events: all !important;
+  }
+
+  /* Subsequent popups when scrolling: Pinned to bottom of screen */
+  .hero-message:not(:first-child) {
+    top: auto !important;
+    bottom: 24px !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(20px) scale(0.95) !important;
+  }
+
+  .hero-message:not(:first-child).active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+    pointer-events: all !important;
+  }
+
+  .hero-message:not(.active) {
+    display: none !important;
   }
 
   .hero-message h1,

@@ -4380,8 +4380,8 @@ textarea {
     padding: 24px 16px;
   }
 
-/* Media Query: Hero 3D Sequence & Mobile Layout Overrides (max-width: 992px) */
-@media screen and (max-width: 992px) {
+/* Media Query: Hero 3D Sequence & Mobile Layout Overrides (max-width: 768px) */
+@media screen and (max-width: 768px) {
   .hero-sequence {
     height: auto !important;
     min-height: auto !important;

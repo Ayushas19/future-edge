@@ -151,9 +151,7 @@ export function initHero3D() {
 
   // Initial Tree Scale & Position
   function updateTreeLayout() {
-    if (window.innerWidth <= 768) {
-      treeGroup.position.set(0, 1.8, 0); // Position 3D tree in top half on mobile
-    } else if (window.innerWidth <= 992) {
+    if (window.innerWidth <= 992) {
       treeGroup.position.set(0, -1.8, 0);
     } else {
       treeGroup.position.set(3.2, -2, 0);
@@ -188,9 +186,7 @@ export function initHero3D() {
     currentProgress += (targetProgress - currentProgress) * 0.08;
 
     // Scale & grow 3D Tree based on currentProgress (0.0 to 1.0)
-    const baseScale = window.innerWidth <= 768 ? 0.38 : 0.55;
-    const growthAmount = window.innerWidth <= 768 ? 0.35 : 0.7;
-    const growthScale = baseScale + currentProgress * growthAmount;
+    const growthScale = 0.55 + currentProgress * 0.7;
     treeGroup.scale.set(growthScale, growthScale, growthScale);
 
     // Continuous 3D rotation + scroll-driven rotation
@@ -208,12 +204,10 @@ export function initHero3D() {
     leafParticles.rotation.y = -delta * 0.08;
 
     // Camera dynamic position tracking scroll
-    camera.position.z = window.innerWidth <= 768 ? 18 - currentProgress * 3 : 22 - currentProgress * 5;
+    camera.position.z = 22 - currentProgress * 5;
     camera.position.y = 2 + Math.sin(currentProgress * Math.PI) * 1.5 + mouseY * 0.5;
     camera.position.x = mouseX * 0.8;
-    
-    const lookY = window.innerWidth <= 768 ? 1.8 : 1;
-    camera.lookAt(0, lookY, 0);
+    camera.lookAt(0, 1, 0);
 
     renderer.render(scene, camera);
   }

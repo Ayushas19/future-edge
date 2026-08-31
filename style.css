@@ -4394,10 +4394,8 @@ textarea {
     height: 100vh !important;
     width: 100% !important;
     display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important;
     align-items: center !important;
-    padding-bottom: 24px !important;
+    justify-content: center !important;
     overflow: hidden !important;
   }
 
@@ -4413,46 +4411,43 @@ textarea {
 
   .hero-content-wrapper {
     position: absolute !important;
-    bottom: 20px !important;
-    left: 0 !important;
-    right: 0 !important;
+    top: 60% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     margin: 0 !important;
     z-index: 10 !important;
     width: 100% !important;
-    padding: 0 12px !important;
+    padding: 0 16px !important;
     pointer-events: none !important;
   }
 
   .hero-copy-slides {
     max-width: 100% !important;
-    min-height: auto !important;
+    min-height: 200px !important;
     position: relative !important;
     display: flex !important;
     justify-content: center !important;
-    align-items: flex-end !important;
+    align-items: center !important;
   }
 
   .hero-message {
-    position: relative !important;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
-    transform: translateY(16px) scale(0.95) !important;
-    width: calc(100% - 16px) !important;
-    max-width: 420px !important;
-    margin: 0 auto !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -42%) scale(0.95) !important;
+    width: calc(100% - 20px) !important;
+    max-width: 440px !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
     pointer-events: none !important;
-    background: rgba(255, 255, 255, 0.20) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    padding: 14px 14px !important;
-    border-radius: 16px !important;
-    border: 1px solid rgba(255, 255, 255, 0.45) !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+    background: rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    padding: 16px 16px !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     text-align: center !important;
   }
 
@@ -4464,7 +4459,7 @@ textarea {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
-    transform: translateY(0) scale(1) !important;
+    transform: translate(-50%, -50%) scale(1) !important;
     pointer-events: all !important;
   }
 

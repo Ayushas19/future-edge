@@ -4425,29 +4425,42 @@ textarea {
 
   .hero-message {
     position: absolute !important;
-    top: 50% !important;
+    top: auto !important;
+    bottom: 24px !important;
     left: 50% !important;
-    transform: translate(-50%, -45%) scale(0.95) !important;
+    transform: translateX(-50%) translateY(20px) scale(0.95) !important;
     width: calc(100% - 24px) !important;
+    max-width: 440px !important;
     opacity: 0 !important;
     visibility: hidden !important;
     transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
     pointer-events: none !important;
-    background: rgba(255, 255, 255, 0.90) !important;
-    backdrop-filter: blur(14px) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
-    padding: 22px 18px !important;
-    border-radius: 20px !important;
-    border: 1px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 0 16px 40px rgba(26, 50, 93, 0.12) !important;
+    background: rgba(255, 255, 255, 0.28) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    padding: 18px 16px !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     text-align: center !important;
   }
 
   .hero-message.active {
     opacity: 1 !important;
     visibility: visible !important;
-    transform: translate(-50%, -50%) scale(1) !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
     pointer-events: all !important;
+  }
+
+  .hero-message h1,
+  .hero-message h2 {
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 1px 4px rgba(15, 23, 42, 0.2) !important;
+  }
+
+  .hero-message p {
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9), 0 1px 3px rgba(15, 23, 42, 0.2) !important;
+    color: var(--text-dark) !important;
+    font-weight: 500 !important;
   }
 
   .hero-widgets-container {

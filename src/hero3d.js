@@ -152,9 +152,9 @@ export function initHero3D() {
   // Initial Tree Scale & Position
   function updateTreeLayout() {
     if (window.innerWidth <= 768) {
-      treeGroup.position.set(0, -1.2, 0);
+      treeGroup.position.set(0, -0.6, 0);
     } else if (window.innerWidth <= 992) {
-      treeGroup.position.set(0, -2.2, 0);
+      treeGroup.position.set(0, -1.8, 0);
     } else {
       treeGroup.position.set(3.2, -2, 0);
     }

@@ -65,7 +65,11 @@ export function initUI() {
     const rect = heroSequence.getBoundingClientRect();
     const heroHeight = heroSequence.offsetHeight;
     const windowHeight = window.innerHeight;
-    const totalScrollable = heroHeight - windowHeight;
+    if (window.innerWidth <= 992) {
+      if (heroMessages[0]) heroMessages[0].classList.add('active');
+      heroWidgets.forEach(w => w.classList.add('active'));
+      return;
+    }
 
     if (totalScrollable <= 0) return;
 

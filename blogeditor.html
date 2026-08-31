@@ -109,7 +109,7 @@
           <div style="display: flex; align-items: center; gap: 14px;">
             <span class="admin-badge"><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Authenticated
               Admin</span>
-            <span style="color: var(--text-muted); font-size: 0.9rem;">Logged in as <strong>Vivek Sharma
+            <span style="color: var(--text-muted); font-size: 0.9rem;">Logged in as <strong>Vivek Bhadauria
                 (Admin)</strong></span>
           </div>
           <div style="display: flex; gap: 10px;">
@@ -154,7 +154,7 @@
               <div class="form-row-2">
                 <div class="editor-field">
                   <label for="postAuthorName">Author Name *</label>
-                  <input type="text" id="postAuthorName" placeholder="e.g. Vivek Sharma" value="Vivek Sharma"
+                  <input type="text" id="postAuthorName" placeholder="e.g. Vivek Bhadauria" value="Vivek Bhadauria"
                     required />
                 </div>
 
@@ -253,8 +253,8 @@
                   <div class="blog-card-footer">
                     <div class="author-info">
                       <div class="author-avatar" id="prevAvatar" style="width: 32px; height: 32px; font-size: 0.8rem;">
-                        VS</div>
-                      <span class="author-name" id="prevAuthor" style="font-size: 0.85rem;">Vivek Sharma</span>
+                        VB</div>
+                      <span class="author-name" id="prevAuthor" style="font-size: 0.85rem;">Vivek Bhadauria</span>
                     </div>
                     <span class="read-article-btn">Read Article &rarr;</span>
                   </div>
@@ -384,13 +384,13 @@
       document.getElementById('prevTitle').textContent = titleIn.value || 'Article Title Preview Will Appear Here...';
       document.getElementById('prevCategory').textContent = catIn.value;
       document.getElementById('prevExcerpt').textContent = excerptIn.value || 'Your article short summary and excerpt will preview right here as you type.';
-      document.getElementById('prevAuthor').textContent = authorIn.value || 'Vivek Sharma';
+      document.getElementById('prevAuthor').textContent = authorIn.value || 'Vivek Bhadauria';
       document.getElementById('prevMeta').textContent = `Just Now • ${readIn.value || '5 min read'}`;
 
       // Initials avatar
-      const name = authorIn.value || 'Vivek Sharma';
+      const name = authorIn.value || 'Vivek Bhadauria';
       const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
-      document.getElementById('prevAvatar').textContent = initials || 'VS';
+      document.getElementById('prevAvatar').textContent = initials || 'VB';
 
       // Cover Image
       const prevImgBox = document.getElementById('prevImgBox');
